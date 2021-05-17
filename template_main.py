@@ -11,6 +11,7 @@ import datetime
 import csv
 from jinja2 import Environment, PackageLoader, select_autoescape, Template
 from weasyprint import HTML
+import os
 
 #vytvoreni prostredi
 env = Environment(
@@ -26,8 +27,6 @@ def precti_seznam_kapitol(filename):
         for row in csvreader:
             seznam_kap.append(row)
     return seznam_kap 
-
-seznam_kapitol = precti_seznam_kapitol("template/seznam_kapitol.csv")
 
 #vytvareni tabulek
 def input_table(src_file):
@@ -46,27 +45,41 @@ def input_table(src_file):
 # tab5 = input_table("/Users/hanamedova/Documents/COG/week18/template/input/kolarmi/tab5.tsv")
 # tab6 = input_table("/Users/hanamedova/Documents/COG/week18/template/input/kolarmi/tab6.tsv")
 
-#datum a pocitani tydnu
-now=datetime.datetime.now()
-now = now.strftime('%d. %m. %Y' )
-#week = datetime.datetime.isocalendar(now)  - nefunguje
+def main():
+    #datum a pocitani tydnu
+    now=datetime.datetime.now()
+    now = now.strftime('%d. %m. %Y' )
+    #week = datetime.datetime.isocalendar(now)  - nefunguje
 
-#nacteni template
-template = env.get_template("template/template_main.html")
+    #copy css
+    os.system("cp template/report.css output/report.css")
 
-#zalozeni vychoziho souboru - main.html
-f_result = open("output/main.html","w")
+    #copy input - obrazku pro tvorbu html
+    #os.system("cp ...")
 
-# a jdeme na to!
-f_result.write(template.render(seznam_kapitol=seznam_kapitol, now=now, enumerate = enumerate, 
-        float = float, input_table=input_table ))  #week=week
-f_result.close()
-HTML("output/main.html").write_pdf("output/report_week18.pdf")
+    seznam_kapitol = precti_seznam_kapitol("template/seznam_kapitol.csv")
 
+    #nacteni template
+    template = env.get_template("template/template_main.html")
 
-#copy css
+    #zalozeni vychoziho souboru - main.html
+    with open("output/main.html","w") as f_result:
+        # a jdeme na to!
+        content = template.render(
+            seznam_kapitol = seznam_kapitol, 
+            now = now, 
+            enumerate = enumerate,  
+            float = float, 
+            input_table = input_table 
+        )
+        f_result.write(content)  #week=week
 
-###TO DO
-#import os
-#os.walk
-#GitLab
+    HTML("output/main.html").write_pdf("output/report_week18.pdf")
+
+    ###TO DO
+    #import os
+    #os.walk
+    #GitLab
+
+if __name__ == '__main__':
+    main()
