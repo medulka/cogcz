@@ -1,0 +1,43 @@
+<div class="tabulka">
+    <div class="legenda">
+        <b>Tab. 4:</b> 
+        Relativní zastoupení variant SARS-CoV-2 v&nbsp;krajích České republiky. 
+        Tabulka uvádí frekvenci výskytu variant SARS-CoV-2 ve vzorcích s datem odběru mezi 1. 1. 2021 a 7. 5. 2021 ve členění podle krajů. 
+        Pro tuto analýzu bylo vybráno z&nbsp;celkového datasetu 2709 vzorků, u&nbsp;nichž je dostupná validní sekvence celého genomu a informace o&nbsp;datu odběru. 
+        V&nbsp;tabulce jsou uvedeny všechny identifikované varianty. 
+        Počet vzorků z&nbsp;daného kraje je uveden v posledním řádku. 
+        <table>
+            <thead>
+                <tr>
+                    <th>Linie</th>
+                    <th>ČR</th>
+                    <th>Praha</th>
+                    <th>JHC</th>
+                    <th>JHM</th>
+                    <th>KVK</th>
+                    <th>VYS</th>
+                    <th>HKK</th>
+                    <th>LBK</th>
+                    <th>MSK</th>
+                    <th>OLK</th>
+                    <th>PAK</th>
+                    <th>PLK</th>
+                    <th>STC</th>
+                    <th>ULK</th>
+                    <th>ZLK</th>
+                    <th>Ostatní</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for line in input_table("input/kolarmi/tab4.tsv") %}
+                <tr>  
+                    <td>{{line[0]}}</td>
+                    {% for item in line[1:] %}
+                    <td>{{'%.4f' % float(item)}}</td> 
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>   
+        </table>
+    </div>
+</div>
