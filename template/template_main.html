@@ -1,0 +1,63 @@
+<!DOCTYPE html>     
+<!-- main template -->
+<html>
+<head>
+    <meta charset = "UTF-8">
+    <link href="report.css" rel="stylesheet">
+    <title>COG-cz: Přehled variant SARS-CoV-2 v České republice</title>
+    <meta name="description" content="tydenni report v ceske verzi">
+    <meta name="author" content="Medulka">
+</head>
+
+<body>
+<article id="hlavicka">
+
+    <hr/>
+
+    <h2>Varianty SARS-CoV-2 v České republice</h2>
+    <h3>Zpráva ke dni {{ now }} (18. kalendářní týden roku 2021)</h3>
+
+    <div class="title-info">
+        <div class="title">Vydalo</div>
+        <div class="content">COG-CZ</div>
+    </div>
+    <div class="title-info">
+        <div class="title">Kontaktní osoby</div>
+        <div class="content">Jan Pačes (jan.paces@img.cs.cz) <br> a Michal Kolář (kolarmi@img.cs.cz), <br> Ústav molekulární genetiky AV ČR</div>
+    </div>
+    
+    <hr/>
+
+    <span style="display:block; height: 3cm;"></span>
+
+    <div class="figure">
+        <img src="haplosit_regiony.svg">
+    </div>       
+</article>
+
+
+<article>
+    <div class="obsah">
+        <h4>Obsah</h4>
+        <ol>
+        {% for (template, nazev, aid) in seznam_kapitol %}
+           
+            <li><a href="#{{aid}}">{{ nazev }}</a></li>
+           
+        {% endfor %}
+    </ol>
+    </div>
+</article>
+
+
+{% for index,(template, nazev, aid) in enumerate(seznam_kapitol) %}
+<article id="{{ aid }}">
+    
+    <h4>{{index+1}}. {{nazev}}</h4>
+    {% include [template] %}
+</article>
+{% endfor %}
+
+</body>
+</html>
+

@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+@page :first {
+    @top-left {
+        content: none;
+    }
+    @top-center {
+        height: 0cm;
+    }
+    @top-right {
+        content: none; 
+    } 
+}
+
+@page blank {
+    @top-left {
+        content: none;
+    }
+    @top-center {
+        height: 0cm;
+    }
+    @top-right {
+        content: none; 
+    }
+}
+
+@page {
+    @top-left {
+        background: #9be5f8;
+        content: counter(page);
+        height: 1cm;
+        text-align: center;
+        width: 1cm; 
+    }
+    @top-center {
+        background: #9be5f8;
+        content: '';
+        display: block;
+        height: .05cm;
+        opacity: .5;
+        width: 100%; 
+    }
+    @top-right {
+        content: string(heading);
+        font-size: 9pt;
+        height: 1cm;
+        vertical-align: middle;
+        width: 100%; 
+    } 
+}
+
+@page landscape {
+    width: 297mm;
+    height: 210mm;
+}
+
+html {
+    color: #393939;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    font-weight: 300;
+    line-height: 1.5; 
+}
+
+body {
+    padding-left: 0.5cm;
+}
+
+article {
+    page-break-before: always;
+}
+
+h2 {
+    color: black;
+    font-size: 20pt;
+    string-set: heading content(); 
+    padding-left: 2.6cm;
+    padding-top: 1cm;
+    margin-top: 0.1cm;
+    margin-bottom: 0cm;
+    margin-left: -2.6cm;
+    margin-right: -2.5cm;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 0.5cm;
+    margin-left: -2.6cm;
+    margin-right: -2.5cm;
+    color: black;
+    font-weight: bold;
+    font-size: 15pt; 
+    padding-left: 2.6cm;
+    padding-top: 0.5cm;
+    padding-bottom: 0.5cm;
+}
+
+h4 {
+    color: black;
+    font-size: 13pt; 
+}
+
+hr {
+    display: block;
+    background: #9be5f8;
+    height: 0.1cm;
+    content: '';
+    opacity: .5;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+
+ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+}
+
+ol li {
+    counter-increment: my-awesome-counter;
+}
+
+ol li::before {
+    content: counter(my-awesome-counter) '. ';
+    color: black;
+    font-weight: normal;
+}
+
+#tabulka-varianty-zajmu {
+    page: landscape;
+}
+
+#tabulka-varianty-pozornosti {
+    page: landscape;
+}
+
+#tab3 {
+    page: landscape;
+}
+
+#tab4 {
+    page: landscape;
+}
+#tab5 {
+    page: landscape;
+}
+#tab6 {
+    page: landscape;
+}
+
+
+div.obsah a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.figure {
+    margin-left: auto;
+    margin-right: auto;
+    page-break-inside: avoid;
+    max-width: 100%;
+}
+
+.figure .legenda {
+    padding-top: 0.2cm;
+    padding-bottom: 0.2cm;
+    text-align: center;
+    font-size: 10pt;
+    text-indent: 0;
+    max-width: 100%; 
+}
+
+.figure img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+.map-figure img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.structure-figure img {
+    max-width: 100%;
+}
+
+
+article#kontakty dl dt {
+    font-weight: 400;
+    flex-wrap: wrap;
+    margin: 0 ;
+    padding-left: 0 ;
+}
+
+.title-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-top: 0.5cm;
+    padding-bottom: 0.5cm;
+}
+
+.title-info .title {
+    flex-basis: 20rem;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.title-info .title::after {
+    content: ':'
+}
+
+.title-info .content {
+    flex-basis: 100%;
+    font-size: 12pt;
+}
+
+
+.map-figure {
+    display: flex;
+}
+
+.mapa {
+    align-content:center;
+    flex: 1 50%;
+    padding: 1rem;
+}
+
+.mapa img {
+    display: block;
+}
+
+.mapa .legenda {
+    padding-top: 0.5cm;
+    padding-bottom: 0.2cm;
+    font-size: 10pt;
+}
+
+
+
+.structure-figure {
+    display: flex;
+}
+
+.struktura {
+    align-content:center;
+    flex: 1 50%;
+    padding: 1rem;
+}
+
+.strutktura img {
+    display: block;
+}
+
+.struktura .legenda {
+    padding-top: 0.5cm;
+    padding-bottom: 0.2cm;
+    font-size: 10pt;
+}
+
+.tabulka-kratka {
+    page-break-inside: avoid;
+}
+
+.tabulka table {
+
+    border-collapse: collapse;
+    font-size: 9pt;
+}
+
+.tabulka th {
+    border-top: 0.5mm solid #9be5f8;
+    border-bottom: 0.3mm solid #9be5f8;
+    background: #9be5f8;
+    color: black;
+    font-weight: normal;
+    padding-top: 0.25cm;
+    padding-bottom: 0.25cm;
+    text-transform:uppercase;
+    font-size: 9pt;
+    padding-right: 0cm;
+    padding-left: 0cm;
+}
+
+.tabulka td {
+    padding-top: 2mm;
+    padding-bottom: 0mm;
+    padding-right: 2mm;
+    padding-left: 2mm;
+
+}
+
+.tabulka tbody tr:last-child td {
+    border-bottom: 0.5mm solid #9be5f8;
+}
+    
+.tabulka th, td {
+    text-align: center; 
+}
+
+.tabulka .interest {
+    background:#9be5f8;
+}
+
+
+.tabulka .legenda {
+    padding-top: 0.5cm;
+    padding-bottom: 0.2cm;
+    text-align: center;
+    font-size: 10pt;
+    text-indent: 0;
+    max-width: 100%; 
+}
+
+.tabulka table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heatmap {
+    page-break-before: always;
+    page: blank;
+}
+
+.heatmap img {
+    max-height: 27cm;
+}
