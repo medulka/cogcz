@@ -11,17 +11,21 @@ import datetime
 import csv
 from jinja2 import Environment, PackageLoader, select_autoescape, Template
 from weasyprint import HTML
+import shutil
 import os
+import base64
+
 
 #vytvoreni prostredi
 env = Environment(
     loader = PackageLoader('__main__', '.'),
-    autoescape = select_autoescape(['html'])
+    autoescape = select_autoescape(['html']),
+    extensions=['jinja2.ext.debug']
     )
 
 #seznam kapitol - obsah
 def precti_seznam_kapitol(filename):
-    seznam_kap = []
+    seznam_kap = []  
     with open(filename, newline = '') as f:
         csvreader = csv.reader(f)
         for row in csvreader:
@@ -40,10 +44,6 @@ def input_table(src_file):
         del(lst[0])    
     return lst
 
-# tab3 = input_table("/Users/hanamedova/Documents/COG/week18/template/input/kolarmi/tab3.tsv")
-# tab4 = input_table("/Users/hanamedova/Documents/COG/week18/template/input/kolarmi/tab4.tsv")
-# tab5 = input_table("/Users/hanamedova/Documents/COG/week18/template/input/kolarmi/tab5.tsv")
-# tab6 = input_table("/Users/hanamedova/Documents/COG/week18/template/input/kolarmi/tab6.tsv")
 
 def main():
     #datum a pocitani tydnu
@@ -51,35 +51,52 @@ def main():
     now = now.strftime('%d. %m. %Y' )
     #week = datetime.datetime.isocalendar(now)  - nefunguje
 
-    #copy css
-    os.system("cp template/report.css output/report.css")
-
-    #copy input - obrazku pro tvorbu html
-    #os.system("cp ...")
-
     seznam_kapitol = precti_seznam_kapitol("template/seznam_kapitol.csv")
+
+    #copy css
+    shutil.copyfile("template/report.css", "output/report.css")
+
 
     #nacteni template
     template = env.get_template("template/template_main.html")
 
+    #kopirovani obrazku z adresare input do output
+    obrazky = []
+    def obrazek(tmpl, src):
+        "input: cesta, jmeno obrazku, outpt: zkopirovany obrazek do adresare output"
+        tdir = os.path.split(tmpl)[0]
+        obrazky.append(os.path.join(tdir, src))
+        src_file = os.path.join(tdir, src)
+        #target_file = os.path.join("output", src)
+        #shutil.copyfile(src_file, target_file)
+        #if src == '*.png'
+        with open(src_file, "rb") as obr:
+            encoded_obr = base64.b64encode(obr.read())
+        data_url = "data:image/png;base64," + encoded_obr.decode('utf-8')
+        return data_url
+
     #zalozeni vychoziho souboru - main.html
-    with open("output/main.html","w") as f_result:
-        # a jdeme na to!
+    with open("output/main_pdf.html","w") as f_result:
         content = template.render(
             seznam_kapitol = seznam_kapitol, 
             now = now, 
             enumerate = enumerate,  
             float = float, 
-            input_table = input_table 
+            input_table = input_table,
+            obrazek = obrazek
         )
-        f_result.write(content)  #week=week
-
+        f_result.write(content)     
+        #kovertovat obrazky do data url formatu
+        
+        
+    print(f"Obrazky: {' '.join(obrazky)}")
     HTML("output/main.html").write_pdf("output/report_week18.pdf")
 
-    ###TO DO
-    #import os
-    #os.walk
-    #GitLab
+    
+   
+
 
 if __name__ == '__main__':
     main()
+
+
