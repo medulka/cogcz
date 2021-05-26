@@ -67,16 +67,23 @@ def main():
         tdir = os.path.split(tmpl)[0]
         obrazky.append(os.path.join(tdir, src))
         src_file = os.path.join(tdir, src)
-        #target_file = os.path.join("output", src)
-        #shutil.copyfile(src_file, target_file)
-        #if src == '*.png'
-        with open(src_file, "rb") as obr:
-            encoded_obr = base64.b64encode(obr.read())
-        data_url = "data:image/png;base64," + encoded_obr.decode('utf-8')
-        return data_url
+        if os.path.getsize(src_file) > 1500000:
+            target_file = os.path.join("output", src)
+            shutil.copyfile(src_file, target_file)
+            return src
+        else:
+             with open(src_file, "rb") as obr:
+                    encoded_obr = base64.b64encode(obr.read()).decode("utf-8")       
+            if src.lower().endswith('.png'):
+                data_url = "data:image/png;base64," + encoded_obr
+            elif src.lower().endswith('.svg'):        
+                data_url = "data:image/svg+xml;base64," + encoded_obr
+            else:
+                raise RuntimeError("neznama pripona obrazku")
+            return data_url
 
     #zalozeni vychoziho souboru - main.html
-    with open("output/main_pdf.html","w") as f_result:
+    with open("output/main.html","w") as f_result:
         content = template.render(
             seznam_kapitol = seznam_kapitol, 
             now = now, 
@@ -92,11 +99,8 @@ def main():
     print(f"Obrazky: {' '.join(obrazky)}")
     HTML("output/main.html").write_pdf("output/report_week18.pdf")
 
-    
-   
-
-
 if __name__ == '__main__':
     main()
 
 
+os.path.getsize('/Users/hanamedova/Documents/COG/week18/report/input/hampl/haplosit_regiony.svg')
