@@ -3,8 +3,8 @@
 titulek:    Jinja2 templating
 vysledek:   vysledne html
 autor:      medulka
-verze:      week18
-datum:      od 11. kvetna 2021 a dale
+verze:      week20
+datum:      od 21. kvetna 2021 a dale
 """
 
 import datetime
@@ -72,15 +72,15 @@ def main():
             shutil.copyfile(src_file, target_file)
             return src
         else:
-             with open(src_file, "rb") as obr:
-                    encoded_obr = base64.b64encode(obr.read()).decode("utf-8")       
+            with open(src_file, "rb") as obr:
+                encoded_obr = base64.b64encode(obr.read()).decode("utf-8")       
             if src.lower().endswith('.png'):
-                data_url = "data:image/png;base64," + encoded_obr
+                prefix = "data:image/png;base64,"
             elif src.lower().endswith('.svg'):        
-                data_url = "data:image/svg+xml;base64," + encoded_obr
+                prefix = "data:image/svg+xml;base64,"
             else:
                 raise RuntimeError("neznama pripona obrazku")
-            return data_url
+            return prefix + encoded_obr
 
     #zalozeni vychoziho souboru - main.html
     with open("output/main.html","w") as f_result:
@@ -89,6 +89,7 @@ def main():
             now = now, 
             enumerate = enumerate,  
             float = float, 
+            int = int,
             input_table = input_table,
             obrazek = obrazek
         )
@@ -97,10 +98,7 @@ def main():
         
         
     print(f"Obrazky: {' '.join(obrazky)}")
-    HTML("output/main.html").write_pdf("output/report_week18.pdf")
+    HTML("output/main.html").write_pdf("output/report_week20.pdf")
 
 if __name__ == '__main__':
     main()
-
-
-os.path.getsize('/Users/hanamedova/Documents/COG/week18/report/input/hampl/haplosit_regiony.svg')
