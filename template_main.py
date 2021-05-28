@@ -102,3 +102,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# [r'(\sna)\s+', ..]
+# re.gsub(item, r'\1&nbsp;', re.G)

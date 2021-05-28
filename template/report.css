@@ -26,14 +26,14 @@
 
 @page {
     @top-left {
-        background: #9be5f8;
+        background: #fae526;
         content: counter(page);
         height: 1cm;
         text-align: center;
         width: 1cm; 
     }
     @top-center {
-        background: #9be5f8;
+        background: #fae526;
         content: '';
         display: block;
         height: .05cm;
@@ -102,7 +102,7 @@ h4 {
 
 hr {
     display: block;
-    background: #9be5f8;
+    background: #fae526;
     height: 0.1cm;
     content: '';
     opacity: .5;
@@ -180,6 +180,18 @@ div.obsah a {
 }
 
 
+.eyecatcher {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eyecatcher img {
+    width: 100%;
+}
+
+.eyecatcher.legenda img {
+    text-align: center;
+}
 
 .map-figure img {
     max-width: 100%;
@@ -276,17 +288,17 @@ article#kontakty dl dt {
 }
 
 .tabulka th {
-    border-top: 0.5mm solid #9be5f8;
-    border-bottom: 0.3mm solid #9be5f8;
-    background: #9be5f8;
+    border-top: 0.5mm solid #fae526;
+    border-bottom: 0.3mm solid #fae526;
+    background: #fae526;
     color: black;
     font-weight: normal;
     padding-top: 0.25cm;
     padding-bottom: 0.25cm;
     text-transform:uppercase;
     font-size: 9pt;
-    padding-right: 0cm;
-    padding-left: 0cm;
+    padding-right: 2mm;
+    padding-left: 2mm;
 }
 
 .tabulka td {
@@ -294,11 +306,18 @@ article#kontakty dl dt {
     padding-bottom: 0mm;
     padding-right: 2mm;
     padding-left: 2mm;
+}
 
+.tabulka tr > th:first-child {
+    text-align: left;
+    white-space: nowrap;
+}
+.tabulka tr > td:first-child {
+    text-align: left;
 }
 
 .tabulka tbody tr:last-child td {
-    border-bottom: 0.5mm solid #9be5f8;
+    border-bottom: 0.5mm solid #fae526;
 }
     
 .tabulka th, td {
@@ -306,9 +325,12 @@ article#kontakty dl dt {
 }
 
 .tabulka .interest {
-    background:#9be5f8;
+    background:#f7f3de;
 }
 
+.tabulka .concern {
+    background:#fff1a4;
+}
 
 .tabulka .legenda {
     padding-top: 0.5cm;
@@ -331,4 +353,39 @@ article#kontakty dl dt {
 
 .heatmap img {
     max-height: 27cm;
+}
+
+.nobr {
+    white-space: nowrap;
+}
+
+div.mezera {
+    display: block;
+    height: 15px;
+
+}
+
+.contributors {
+    font-weight:bold;
+    padding-top: 0.5cm;
+}
+
+.affilations {
+    font-style: normal;
+    padding-left: 0;
+}
+
+
+hr .contributions {
+    display: block;
+    background: #fae526;
+    height: 0.05cm;
+    content: '';
+    opacity: .2;
+    width: 50%;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
 }
