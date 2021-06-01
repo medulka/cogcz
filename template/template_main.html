@@ -44,7 +44,7 @@
     <div class="obsah">
         <h4>Obsah</h4>
         <ol>
-        {% for (template, nazev, aid) in seznam_kapitol %}
+        {% for (template, nazev, aid) in seznam_kapitol[:11] %}
            
             <li><a href="#{{aid}}">{{ nazev }}</a></li>
            

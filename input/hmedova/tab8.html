@@ -1,0 +1,63 @@
+<div class="tabulka">
+    <div class="legenda">
+        <b>Tab. 8:</b> 
+        Relativní zastoupení aminokyselinových delecí v&nbsp;krajích České republiky. 
+        Mutace jsou porovnávány s&nbspreferenčním izolátem wuhanské varianty SARS-CoV-2 (ref.č.&nbspNC_045512.2 o&nbspdélce 29&nbsp903 bp).
+        Tabulka zahrnuje frekvence aminokyselinových delecí, které se v&nbsp;jednom kraji vyskytovaly ve více jak 10&nbsp;% vzorků a zároveň jsou z&nbsp;daného kraje dostupné alespoň tři izoláty obsahující tuto mutaci. 
+        Řádek Ostatní uvádí součet frekvencí všech ostatních identifikovaných mutací. Celkový počet vzorků z&nbsp;daného kraje je uveden na posledním řádku. 
+        Mutace jsou uvedeny ve formátu 
+        &lt;protein&gt;:&lt;aminokyselina&nbsp;v&nbsp;referenční&nbsp;sekvenci&gt;&lt;pozice&nbsp;v&nbsp;proteinu&gt;&lt;aminokyselina&nbsp;v&nbsp;mutované sekvenci&gt. 
+        <table>
+            <thead>
+                <tr>
+                    <th>Linie</th>
+                    <th>ČR</th>
+                    <th>Praha</th>
+                    <th>JHC</th>
+                    <th>JHM</th>
+                    <th>KVK</th>
+                    <th>VYS</th>
+                    <th>HKK</th>
+                    <th>LBK</th>
+                    <th>MSK</th>
+                    <th>OLK</th>
+                    <th>PAK</th>
+                    <th>PLK</th>
+                    <th>STC</th>
+                    <th>ULK</th>
+                    <th>ZLK</th>
+                    <th>Ostatní</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set table = input_table("input/kolarmi/tab8.tsv") %}
+                {% for line in table[:-2] %}
+                    <tr>  
+                        <td>{{line[0]}}</td>
+                        {% for item in line[1:] %}
+                        <td>{{'%.4f' % float(item)}}</td> 
+                        {% endfor %}
+                    </tr>   
+                {% endfor %}   
+
+                {% set line = table[-2] %}
+                <tr>  
+                    <td>Ostatní</td>
+                    {% for item in line[1:] %}
+                    <td>{{ item }}</td> 
+                    {% endfor %}
+                </tr>   
+                
+                {% set line = table[-1] %}
+                <tr>  
+                    <td>Počet</td>
+                    {% for item in line[1:] %}
+                    <td>{{ item }}</td> 
+                    {% endfor %}
+                </tr>  
+ 
+                
+            </tbody>   
+        </table>
+    </div>
+</div>

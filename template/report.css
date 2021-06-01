@@ -31,6 +31,7 @@
         height: 1cm;
         text-align: center;
         width: 1cm; 
+        margin-bottom: 0.5cm;
     }
     @top-center {
         background: #fae526;
@@ -39,6 +40,7 @@
         height: .05cm;
         opacity: .5;
         width: 100%; 
+        margin-bottom: 0.5cm;
     }
     @top-right {
         content: string(heading);
@@ -46,6 +48,7 @@
         height: 1cm;
         vertical-align: middle;
         width: 100%; 
+        margin-bottom: 0.5cm;
     } 
 }
 
@@ -130,11 +133,11 @@ ol li::before {
     font-weight: normal;
 }
 
-#tabulka-varianty-zajmu {
+#tab1 {
     page: landscape;
 }
 
-#tabulka-varianty-pozornosti {
+#tab2 {
     page: landscape;
 }
 
@@ -145,15 +148,30 @@ ol li::before {
 #tab4 {
     page: landscape;
 }
+
 #tab5 {
     page: landscape;
 }
+
 #tab6 {
+    page: landscape;
+}
+
+#tab7 {
+    page: landscape;
+}
+
+#tab8 {
     page: landscape;
 }
 
 
 div.obsah a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a {
     color: inherit;
     text-decoration: none;
 }
@@ -186,7 +204,7 @@ div.obsah a {
 }
 
 .eyecatcher img {
-    width: 100%;
+    max-width: 100%;
 }
 
 .eyecatcher.legenda img {
@@ -282,10 +300,10 @@ article#kontakty dl dt {
 }
 
 .tabulka table {
-
     border-collapse: collapse;
     font-size: 9pt;
 }
+
 
 .tabulka th {
     border-top: 0.5mm solid #fae526;
@@ -346,6 +364,41 @@ article#kontakty dl dt {
     margin-right: auto;
 }
 
+.tabulka.casova table {
+    margin-left: -1cm;
+    margin-right: auto;
+}
+
+
+.tabulka.casova table {
+    font-size: 8pt;
+}
+
+.tabulka.casova tr > td:first-child {
+    white-space: nowrap;
+}
+
+.tabulka.casova th {
+    border-top: 0.5mm solid #fae526;
+    border-bottom: 0.3mm solid #fae526;
+    background: #fae526;
+    color: black;
+    font-weight: normal;
+    padding-top: 0.25cm;
+    padding-bottom: 0.25cm;
+    text-transform:uppercase;
+    font-size: 8pt;
+    padding-right: 1mm;
+    padding-left: 1mm;
+}
+
+.tabulka.casova td {
+    padding-top: 2mm;
+    padding-bottom: 0mm;
+    padding-right: 1mm;
+    padding-left: 1mm;
+}
+
 .heatmap {
     page-break-before: always;
     page: blank;
@@ -353,17 +406,15 @@ article#kontakty dl dt {
 
 .heatmap img {
     max-height: 27cm;
+    max-width:100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nobr {
     white-space: nowrap;
 }
 
-div.mezera {
-    display: block;
-    height: 15px;
-
-}
 
 .contributors {
     font-weight:bold;
