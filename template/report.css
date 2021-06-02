@@ -365,7 +365,7 @@ article#kontakty dl dt {
 }
 
 .tabulka.casova table {
-    margin-left: -1cm;
+    margin-left: auto;
     margin-right: auto;
 }
 

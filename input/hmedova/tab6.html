@@ -1,11 +1,7 @@
 <div class="tabulka casova">
     <div class="legenda">
         <b>Tab. 6:</b> 
-    Mutace jsou porovnávány s&nbspreferenčním izolátem wuhanské varianty SARS-CoV-2 (ref.č.&nbspNC_045512.2 o&nbspdélce 29&nbsp903 bp).
-    V&nbspizolátech z&nbspČeské republiky bylo nalezeno již 3&nbsp460 mutací (substitucí a delecí) v&nbspgenomu viru SARS-CoV-2. 
-    Grafický přehled zahrnuje frekvence aminokyselinových substitucí, které se v&nbspjednom týdnu vyskytovaly ve více jak 10% a zároveň jsou z&nbspdaného týdne dostupné alespoň tři izoláty obsahující tuto mutaci. 
-    Celkový počet vzorků z&nbspdaného kraje je uveden na spodní ose. 
-    Substituce jsou uvedeny ve formátu &lt;protein&gt;:&lt;aminokyselina&nbsp;v&nbsp;referenční&nbsp;sekvenci&gt;&lt;pozice&nbsp;v&nbsp;proteinu&gt;&lt;aminokyselina&nbsp;v&nbsp;mutované sekvenci&gt. 
+    Přehled variant nalezených na území České republiky od začátku roku 2021.
     </div>    
     
     <table>
@@ -37,15 +33,24 @@
         </thead>
         
         <tbody>
-            {% set table = input_table("input/kolarmi/tab6.tsv") %}
-            {% for line in table[:-2] %}
-                <tr>  
-                    <td>{{line[0]}}</td>
+            {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351','P.1'] %}
+            {% set voi = ['B.1.525','B.1.427','B.1.429','P.3','B.1.616','B.1.617.1','B.1.617.2','B.1.617.3','B.1.620', 'B.1.621']%}
+            {% set table = input_table_tsv("input/kolarmi/tab6.tsv") %}
+            {% for line in table[:-2] %}   
+                {% if line[0] in voi %}
+                    {% set cls = "interest" %}
+                {% elif line[0] in voc %}
+                    {% set cls = "concern" %}
+                {% else %}
+                    {% set cls = "" %}
+                {% endif %}         
+                <tr class="{{cls}}">  
+                    <td><nobr>{{line[0]}}</nobr></td>
                     {% for item in line[1:] %}
                     <td>{{'%.4f' % float(item)}}</td> 
                     {% endfor %}
-                </tr>   
-            {% endfor %}   
+                </tr>                            
+            {% endfor %}
 
             {% set line = table[-2] %}
             <tr>  

@@ -1,0 +1,48 @@
+<div class="tabulka casova">
+    <div class="legenda">
+        <b>Tab. 8:</b> 
+        Relativní zastoupení aminokyselinových mutací v kalendářních týdnech tohoto roku. 
+        Mutace jsou porovnávány s&nbspreferenčním izolátem wuhanské varianty SARS-CoV-2 (ref.č.&nbspNC_045512.2 o&nbspdélce 29&nbsp903 bp).
+       
+        Mutace jsou uvedeny ve formátu 
+        &lt;protein&gt;:&lt;aminokyselina&nbsp;v&nbsp;referenční&nbsp;sekvenci&gt;&lt;pozice&nbsp;v&nbsp;proteinu&gt;&lt;aminokyselina&nbsp;v&nbsp;mutované sekvenci&gt. 
+        <table>
+            <thead>
+                <tr>
+                <th>Týden</th>
+                <th>2020_53</th>
+                <th>2021_01</th>
+                <th>2021_02</th>
+                <th>2021_03</th>
+                <th>2021_04</th>
+                <th>2021_05</th>
+                <th>2021_06</th>
+                <th>2021_07</th>
+                <th>2021_08</th>
+                <th>2021_09</th>
+                <th>2021_10</th>
+                <th>2021_11</th>
+                <th>2021_12</th>
+                <th>2021_13</th>
+                <th>2021_14</th>
+                <th>2021_15</th>
+                <th>2021_16</th>
+                <th>2021_17</th>
+                <th>2021_18</th>
+                <th>Ostatní</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set table =  input_table_tsv("input/mkolisko/tab8.tsv") %}
+                {% for line in table %}
+                    <tr>  
+                        <td>{{line[0]}}</td>
+                        {% for item in line[1:] %}
+                        <td>{{'%.4f' % float(item)}}</td> 
+                        {% endfor %}
+                    </tr>   
+                {% endfor %}   
+            </tbody>   
+        </table>
+    </div>
+</div>

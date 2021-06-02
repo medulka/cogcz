@@ -32,8 +32,8 @@ def precti_seznam_kapitol(filename):
             seznam_kap.append(row)
     return seznam_kap 
 
-#vytvareni tabulek
-def input_table(src_file):
+#vytvareni tabulek = vstup od Michala Kolare
+def input_table_tsv(src_file):
     "a text file transformation to an item"
     with open(src_file) as g:
         lst = []
@@ -44,6 +44,17 @@ def input_table(src_file):
         del(lst[0])    
     return lst
 
+#vytvareni tabulek - vstup od Martina Koliska
+def input_table_txt(src_file):
+    "a text file transformation to an item"
+    with open(src_file) as g:
+        lst = []
+        for line in g:
+            items = line.split(',')
+            items = [item.strip(" ").strip(" \n") for item in items]
+            lst.append(items[:-1])
+        del(lst[0])    
+    return lst
 
 def main():
     #datum a pocitani tydnu
@@ -90,7 +101,8 @@ def main():
             enumerate = enumerate,  
             float = float, 
             int = int,
-            input_table = input_table,
+            input_table_txt = input_table_txt,
+            input_table_tsv = input_table_tsv,
             obrazek = obrazek
         )
         f_result.write(content)     
