@@ -18,7 +18,7 @@ import base64
 
 #vytvoreni prostredi
 env = Environment(
-    loader = PackageLoader('__main__', '.'),
+    loader = PackageLoader('template_main', '.'),
     autoescape = select_autoescape(['html']),
     extensions=['jinja2.ext.debug']
     )
