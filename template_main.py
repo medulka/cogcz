@@ -110,7 +110,7 @@ def main():
         
         
     print(f"Obrazky: {' '.join(obrazky)}")
-    HTML("output/main.html").write_pdf("output/report_week20.pdf")
+    HTML("output/main.html").write_pdf("output/report.pdf")
 
 if __name__ == '__main__':
     main()
