@@ -28,9 +28,17 @@ jobs:
       run: |
         mkdir output
         python3 ./template_main.py
+    - name: Archive output HTML
+      uses: actions/upload-artifact@v2
+      with:
+        name: HTML reports
+        path: |
+          output/
+          !output/report.pdf
+        retention-days: 14
     - name: Archive output PDF
       uses: actions/upload-artifact@v2
       with:
-        name: All reports
-        path: output/
+        name: PDF report
+        path: output/report.pdf
         retention-days: 14
