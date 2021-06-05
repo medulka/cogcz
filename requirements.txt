@@ -1,6 +1,2 @@
 jinja2
-datetime
-os
-base64
 weasyprint
-shutil
