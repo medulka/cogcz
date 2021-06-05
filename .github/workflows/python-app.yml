@@ -29,8 +29,8 @@ jobs:
         mkdir output
         python3 ./template_main.py
     - name: Archive output PDF
-        uses: actions/upload-artifact@v2
-        with:
-          name: All reports
-          path: output/
-          retention-days: 14
+      uses: actions/upload-artifact@v2
+      with:
+        name: All reports
+        path: output/
+        retention-days: 14
