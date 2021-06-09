@@ -26,7 +26,7 @@
 
 @page {
     @top-left {
-        background: #fae526;
+        background: #BEBADA;
         content: counter(page);
         height: 1cm;
         text-align: center;
@@ -34,7 +34,7 @@
         margin-bottom: 0.5cm;
     }
     @top-center {
-        background: #fae526;
+        background: #BEBADA;
         content: '';
         display: block;
         height: .05cm;
@@ -63,6 +63,7 @@ html {
     font-size: 11pt;
     font-weight: 300;
     line-height: 1.5; 
+    text-align: justify;
 }
 
 body {
@@ -105,7 +106,7 @@ h4 {
 
 hr {
     display: block;
-    background: #fae526;
+    background: #a69ce2;
     height: 0.1cm;
     content: '';
     opacity: .5;
@@ -196,7 +197,6 @@ a {
     max-width: 100%;
     max-height: 100%;
 }
-
 
 .eyecatcher {
     margin-left: auto;
@@ -306,9 +306,9 @@ article#kontakty dl dt {
 
 
 .tabulka th {
-    border-top: 0.5mm solid #fae526;
-    border-bottom: 0.3mm solid #fae526;
-    background: #fae526;
+    border-top: 0.5mm solid #BEBADA;
+    border-bottom: 0.3mm solid #BEBADA;
+    background: #BEBADA;
     color: black;
     font-weight: normal;
     padding-top: 0.25cm;
@@ -335,7 +335,7 @@ article#kontakty dl dt {
 }
 
 .tabulka tbody tr:last-child td {
-    border-bottom: 0.5mm solid #fae526;
+    border-bottom: 0.5mm solid #BEBADA;
 }
     
 .tabulka th, td {
@@ -343,13 +343,14 @@ article#kontakty dl dt {
 }
 
 .tabulka .interest {
-    background:#ee644c7a;
-
+    background:#bebada57;
 }
 
 .tabulka .concern {
-    background:#ee644cfd;
+    background:#bebada98;
 }
+
+
 
 .tabulka .legenda {
     padding-top: 0.5cm;
@@ -366,7 +367,7 @@ article#kontakty dl dt {
 }
 
 .tabulka.casova table {
-    margin-left: auto;
+    margin-left: -2cm;
     margin-right: auto;
 }
 
@@ -380,9 +381,9 @@ article#kontakty dl dt {
 }
 
 .tabulka.casova th {
-    border-top: 0.5mm solid #fae526;
-    border-bottom: 0.3mm solid #fae526;
-    background: #fae526;
+    border-top: 0.5mm solid #BEBADA;
+    border-bottom: 0.3mm solid #BEBADA;
+    background: #BEBADA;
     color: black;
     font-weight: normal;
     padding-top: 0.25cm;
@@ -400,6 +401,44 @@ article#kontakty dl dt {
     padding-left: 1mm;
 }
 
+/* stinovani tabulky */
+.tabulka.casova.AAmutations tbody > tr:nth-child(even) td {
+    background:#bebada2c;
+}
+.tabulka.casova.AAmutations tbody > tr:nth-child(odd) td {
+    background: none;
+}
+
+.tabulka.regiony.AAmutations tbody > tr:nth-child(even) td {
+    background:#bebada2c;
+}
+.tabulka.regiony.AAmutations tbody > tr:nth-child(odd) td {
+    background: none;
+}
+
+/* pocty barevne */
+.tabulka .level_80 td {
+    background:#BEBADA;
+}
+
+.tabulka .level_60 td {
+    background:#BEBADA;
+}
+
+.tabulka .level_40 td {
+    background:#BEBADA;
+}
+
+.tabulka .level_20 td {
+    background:#BEBADA;
+}
+
+.tabulka .level_01 td {
+    background:#BEBADA;
+}
+
+
+/* Michalovy heatmapy */
 .heatmap {
     page-break-before: always;
     page: blank;
@@ -410,10 +449,6 @@ article#kontakty dl dt {
     max-width:100%;
     margin-left: auto;
     margin-right: auto;
-}
-
-.nobr {
-    white-space: nowrap;
 }
 
 
@@ -430,7 +465,7 @@ article#kontakty dl dt {
 
 hr .contributions {
     display: block;
-    background: #fae526;
+    background: #998fd8;
     height: 0.05cm;
     content: '';
     opacity: .2;

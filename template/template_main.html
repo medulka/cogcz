@@ -16,7 +16,7 @@
     <hr/>
 
     <h2>Varianty SARS-CoV-2 v České republice</h2>
-    <h3>Zpráva ke dni {{ now }} (20. kalendářní týden roku 2021)</h3>
+    <h3>Zpráva ke dni {{ NOW }} ({{ WEEK }}. kalendářní týden roku 2021)</h3>
 
     <div class="title-info">
         <div class="title">Vydalo</div>
@@ -29,7 +29,7 @@
     
     <hr/>
 
-    <!-- <span style="display:block; height: 3cm;"></span>    -->
+    <span style="display:block; height: 3cm;"></span>   
    
     <div class="eyecatcher">
         <img src="{{obrazek('input/hmedova/x', 'eyecatcher.png')}}" >
@@ -38,30 +38,25 @@
 </article>
 
 
-
-
 <article>
     <div class="obsah">
         <h4>Obsah</h4>
         <ol>
-        {% for (template, nazev, aid) in seznam_kapitol[:11] %}
-           
-            <li><a href="#{{aid}}">{{ nazev }}</a></li>
-           
+        {% for (template, nazev, aid) in seznam_kapitol[:11] %}          
+            <li><a href="#{{aid}}">{{ nazev }}</a></li>      
         {% endfor %}
     </ol>
     </div>
 </article>
 
 
+
 {% for index,(template, nazev, aid) in enumerate(seznam_kapitol) %}
-<article id="{{ aid }}">
-    
+<article id="{{ aid }}">   
     <h4>{{index+1}}. {{nazev}}</h4>
     {% include [template] %}
 </article>
 {% endfor %}
-
 </body>
 </html>
 

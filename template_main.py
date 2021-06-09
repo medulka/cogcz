@@ -3,18 +3,27 @@
 titulek:    Jinja2 templating
 vysledek:   vysledne html
 autor:      medulka
-verze:      week20
+verze:      week22
 datum:      od 21. kvetna 2021 a dale
 """
 
 import datetime
 import csv
+from re import A
+from turtle import screensize
 from jinja2 import Environment, PackageLoader, select_autoescape, Template
 from weasyprint import HTML
 import shutil
 import os
 import base64
 
+#fill in!!!
+DF_DATE = "4. 6.2021"
+ACTUAL_SAMPLE_SIZE = "4 189"
+SAMPLES_FOR_ANALYSES = "3 312"
+LINEAGE_COUNTS = "47"
+WEEK = "22"
+NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
 
 #vytvoreni prostredi
 env = Environment(
@@ -39,10 +48,35 @@ def input_table_tsv(src_file):
         lst = []
         for line in g:
             items = line.split('\t')
-            items = [item.strip("\"").strip("\n") for item in items]
+            items = [item.strip("\"").strip("\n").strip(" ") for item in items]
             lst.append(items)
         del(lst[0])    
     return lst
+    
+
+def color_class(line,item):
+    "in: item of a sublist, out: str"
+    max_item = max([int(i) for i in line[1:] if i != ''])
+    if item != "":
+        item = int(item)
+        if item/max_item  > 0.8:
+            color_class = "level_80"
+        elif item/max_item  > 0.6:
+            color_class = "level_60"
+        elif item/max_item  > 0.4:
+            color_class = "level_40"
+        elif item/max_item  > 0.4:
+            color_class = "level_40"
+        elif item/max_item  > 0.2:
+            color_class = "level_20"
+        elif item/max_item  > 0.01:
+            color_class = "level_01" 
+        else:
+            color_class = ""
+    else:
+       color_class = "" 
+    return color_class
+
 
 #vytvareni tabulek - vstup od Martina Koliska
 def input_table_txt(src_file):
@@ -57,16 +91,11 @@ def input_table_txt(src_file):
     return lst
 
 def main():
-    #datum a pocitani tydnu
-    now=datetime.datetime.now()
-    now = now.strftime('%d. %m. %Y' )
-    #week = datetime.datetime.isocalendar(now)  - nefunguje
-
+    #the templates to be used    
     seznam_kapitol = precti_seznam_kapitol("template/seznam_kapitol.csv")
 
     #copy css
     shutil.copyfile("template/report.css", "output/report.css")
-
 
     #nacteni template
     template = env.get_template("template/template_main.html")
@@ -96,14 +125,20 @@ def main():
     #zalozeni vychoziho souboru - main.html
     with open("output/main.html","w") as f_result:
         content = template.render(
+            NOW = NOW, 
+            DF_DATE = DF_DATE,
+            ACTUAL_SAMPLE_SIZE = ACTUAL_SAMPLE_SIZE,
+            WEEK = WEEK,
+            LINEAGE_COUNTS = LINEAGE_COUNTS,
             seznam_kapitol = seznam_kapitol, 
-            now = now, 
             enumerate = enumerate,  
             float = float, 
             int = int,
+            len = len,
             input_table_txt = input_table_txt,
             input_table_tsv = input_table_tsv,
-            obrazek = obrazek
+            obrazek = obrazek,
+            color_class = color_class
         )
         f_result.write(content)     
         #kovertovat obrazky do data url formatu

@@ -1,4 +1,5 @@
-<div class="tabulka">
+<div class="tabulka regiony AAmutations">
+
     <div class="legenda">
         <b>Tab. 7:</b> 
         Relativní zastoupení aminokyselinových mutací v&nbsp;krajích České republiky. 
@@ -6,48 +7,71 @@
         Tabulka zahrnuje frekvence aminokyselinových substitucí, které se v&nbsp;jednom kraji vyskytovaly ve více jak 10 % vzorků a zároveň jsou z&nbsp;daného kraje dostupné alespoň tři izoláty obsahující tuto mutaci. 
         Řádek Ostatní uvádí součet frekvencí všech ostatních identifikovaných mutací. Celkový počet vzorků z&nbsp;daného kraje je uveden na posledním řádku. 
         Mutace jsou uvedeny ve formátu &lt;protein&gt;:&lt;aminokyselina&nbsp;v&nbsp;referenční&nbsp;sekvenci&gt;&lt;pozice&nbsp;v&nbsp;proteinu&gt;&lt;aminokyselina&nbsp;v&nbsp;mutované sekvenci&gt;&lt;-&gt;. 
-        <table>
-            <thead>
-                <tr>
-                    <th>Linie</th>
-                    <th>Praha</th>
-                    <th>JHC</th>
-                    <th>JHM</th>
-                    <th>KVK</th>
-                    <th>VYS</th>
-                    <th>HKK</th>
-                    <th>LBK</th>
-                    <th>MSK</th>
-                    <th>OLK</th>
-                    <th>PAK</th>
-                    <th>PLK</th>
-                    <th>STC</th>
-                    <th>ULK</th>
-                    <th>ZLK</th>
-                    <th>Ostatní</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% set table = input_table_txt("input/mkolisko/tab7.txt") %}
-                {% for line in table[:-1] %}
-                    <tr>  
-                        <td>{{line[0]}}</td>
-                        {% for item in line[1:] %}
-                        <td>{{'%.4f' % float(item)}}</td> 
-                        {% endfor %}
-                    </tr>   
-                {% endfor %}   
+    </div>
 
-                {% set line = table[-1] %}
+    <table>
+        <thead>
+            <tr>
+                <th>Linie</th>
+                <th>Ostatní</th>                   
+                <th>JHC</th>
+                <th>JHM</th>
+                <th>KVK</th>
+                <th>HKK</th>
+                <th>LBK</th>
+                <th>MSK</th>
+                <th>OLK</th>
+                <th>PAK</th>
+                <th>PLK</th>
+                <th>Praha</th>
+                <th>STC</th>
+                <th>ULK</th>
+                <th>VYS</th>
+                <th>ZLK</th>                   
+            </tr>
+        </thead>
+
+        <tbody>
+            {% set table = input_table_tsv("input/mkolisko/tab7.tsv") %}
+            {% for line in table[1:-1] %}
                 <tr>  
-                    <td>Ostatní</td>
+                    <td>{{line[0]}}</td>
                     {% for item in line[1:] %}
-                    <td>{{ item }}</td> 
+                        {% if float(item) > 0.9999 %}
+                            <td>{{'%.0f' % float(item)}}</td> 
+                        {% elif 0.00009 > float(item) %}
+                            <td>{{'%.0f' % float(item)}}</td>  
+                        {% else: %}
+                            <td>{{'%.4f' % float(item)}}</td> 
+                        {% endif %} 
                     {% endfor %}
                 </tr>   
-            
+            {% endfor %}   
 
-            </tbody>   
-        </table>
-    </div>
+            {% set line = table[-1] %}
+            <tr>  
+                <td>Ostatní</td>
+                {% for item in line[1:] %}
+                    {% if float(item) > 0.9999 %}
+                        <td>{{'%.0f' % float(item)}}</td> 
+                    {% elif 0.00009 > float(item) %}
+                        <td>{{'%.0f' % float(item)}}</td>  
+                    {% else: %}
+                        <td>{{'%.4f' % float(item)}}</td> 
+                    {% endif %} 
+                {% endfor %}
+            </tr>   
+
+            {% set line = table[0] %}
+            <tr>  
+                <td>Počet</td>
+                {% for item in line[1:] %}
+                <td>{{ item }}</td> 
+                {% endfor %}
+            </tr>    
+
+
+        </tbody>   
+    </table>   
+
 </div>
