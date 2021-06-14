@@ -1,5 +1,8 @@
 # cogcz
 
-COG-cz reports, starting week 18 of the year 2021
+The repository cogcz contains scripts and templates for creating the html and pdf of the actual report. 
 
-the Magic Button - make changes and create the report by yourself 
+Output files are generatad via GitHub Action. The inputs have been provided by COG-CZ members.
+
+The bi-weekly reporting started in the week 16 of 2021.
+
