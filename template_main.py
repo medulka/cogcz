@@ -3,7 +3,7 @@
 titulek:    Jinja2 templating
 vysledek:   vysledne html
 autor:      medulka
-verze:      week22
+verze:      week24
 datum:      od 21. kvetna 2021 a dale
 """
 
@@ -18,11 +18,13 @@ import os
 import base64
 
 #fill in!!!
-DF_DATE = "4. 6.2021"
-ACTUAL_SAMPLE_SIZE = "4 189"
+DF_DATE = "18.6.2021"
+ACTUAL_SAMPLE_SIZE = "4 533"
 SAMPLES_FOR_ANALYSES = "3 312"
-LINEAGE_COUNTS = "47"
-WEEK = "22"
+SAMPLES_WEEKS = '4 475'
+SAMPLES_REGIONS ='4 475'
+LINEAGE_COUNTS = "53"
+WEEK = "24"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
 
 #vytvoreni prostredi
@@ -49,10 +51,35 @@ def input_table_tsv(src_file):
         for line in g:
             items = line.split('\t')
             items = [item.strip("\"").strip("\n").strip(" ") for item in items]
-            lst.append(items)
-        del(lst[0])    
+            lst.append(items)  
     return lst
     
+
+def prejmenovani_hlavicky(hlavicka, zkratky_regionu):
+    "in: tabulka, out: prvni radek s prejmenovanymi sloupci"
+    print('-----------')
+    print(zkratky_regionu)
+    print(hlavicka)
+    list_zkratek = [] 
+    for item in hlavicka:
+        for key in zkratky_regionu:
+            if key in item:
+                list_zkratek.append(zkratky_regionu[key]) 
+                break
+        else:   
+            print(item," - nazev nenalezen v hashovaci tabulce")    
+    return list_zkratek
+
+
+def open_hash_table(filename):
+    hash_table = {}   
+    with open(filename, newline = '') as f:
+        csvreader = csv.reader(f)
+        for row in csvreader:
+            key = row[0]
+            value = row[1]
+            hash_table[key] = value
+        return hash_table   
 
 def color_class(line,item):
     "in: item of a sublist, out: str"
@@ -94,6 +121,9 @@ def main():
     #the templates to be used    
     seznam_kapitol = precti_seznam_kapitol("template/seznam_kapitol.csv")
 
+    #nacteni hashovaci tabulky
+    zkratky_regionu = open_hash_table("template/hash_table_regions.csv")
+
     #copy css
     shutil.copyfile("template/report.css", "output/report.css")
 
@@ -101,6 +131,7 @@ def main():
     template = env.get_template("template/template_main.html")
 
     #kopirovani obrazku z adresare input do output
+    #vlozeni obrazku do html - konvertovani obrazku do data url formatu
     obrazky = []
     def obrazek(tmpl, src):
         "input: cesta, jmeno obrazku, outpt: zkopirovany obrazek do adresare output"
@@ -128,6 +159,9 @@ def main():
             NOW = NOW, 
             DF_DATE = DF_DATE,
             ACTUAL_SAMPLE_SIZE = ACTUAL_SAMPLE_SIZE,
+            SAMPLES_REGIONS = SAMPLES_REGIONS,
+            SAMPLES_FOR_ANALYSES = SAMPLES_FOR_ANALYSES,
+            SAMPLES_WEEKS = SAMPLES_WEEKS,
             WEEK = WEEK,
             LINEAGE_COUNTS = LINEAGE_COUNTS,
             seznam_kapitol = seznam_kapitol, 
@@ -138,13 +172,15 @@ def main():
             input_table_txt = input_table_txt,
             input_table_tsv = input_table_tsv,
             obrazek = obrazek,
-            color_class = color_class
+            color_class = color_class,
+            prejmenovani_hlavicky = prejmenovani_hlavicky,
+            zkratky_regionu = zkratky_regionu
         )
         f_result.write(content)     
-        #kovertovat obrazky do data url formatu
+ 
         
         
-    print(f"Obrazky: {' '.join(obrazky)}")
+    #print(f"Obrazky: {' '.join(obrazky)}")
     HTML("output/main.html").write_pdf("output/report.pdf")
 
 if __name__ == '__main__':

@@ -57,6 +57,11 @@
     height: 210mm;
 }
 
+@page portrait {
+    height: 297mm;
+    width: 210mm;
+}
+
 html {
     color: #393939;
     font-family: Arial, Helvetica, sans-serif;
@@ -167,13 +172,14 @@ ol li::before {
 }
 
 
+
 div.obsah a {
     color: inherit;
     text-decoration: none;
 }
 
 a {
-    color: inherit;
+    color:rgba(13, 13, 224, 0.74);
     text-decoration: none;
 }
 
@@ -221,6 +227,7 @@ a {
 }
 
 
+
 article#kontakty dl dt {
     font-weight: 400;
     flex-wrap: wrap;
@@ -244,7 +251,7 @@ article#kontakty dl dt {
 }
 
 .title-info .title::after {
-    content: ':'
+    content: ' '
 }
 
 .title-info .content {
@@ -368,12 +375,11 @@ article#kontakty dl dt {
 
 .tabulka.casova table {
     margin-left: -2cm;
-    margin-right: auto;
+    margin-right: 2cm;
 }
 
-
 .tabulka.casova table {
-    font-size: 8pt;
+    font-size: 7pt;
 }
 
 .tabulka.casova tr > td:first-child {
@@ -386,10 +392,10 @@ article#kontakty dl dt {
     background: #BEBADA;
     color: black;
     font-weight: normal;
-    padding-top: 0.25cm;
-    padding-bottom: 0.25cm;
+    padding-top: 0.1cm;
+    padding-bottom: 0.1cm;
     text-transform:uppercase;
-    font-size: 8pt;
+    font-size: 7pt;
     padding-right: 1mm;
     padding-left: 1mm;
 }
