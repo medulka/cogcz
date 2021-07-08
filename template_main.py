@@ -17,14 +17,16 @@ import shutil
 import os
 import base64
 
-#fill in!!!
-DF_DATE = "18.6.2021"
-ACTUAL_SAMPLE_SIZE = "4 533"
-SAMPLES_FOR_ANALYSES = "3 312"
-SAMPLES_WEEKS = '4 475'
-SAMPLES_REGIONS ='4 475'
-LINEAGE_COUNTS = "53"
-WEEK = "24"
+#update regularly
+DF_DATE = "2.7.2021"
+ACTUAL_SAMPLE_SIZE = "5 008"
+SAMPLES_FOR_ANALYSES = "4 790"
+SAMPLES_WEEKS = '4 113'
+SAMPLES_REGIONS ='4 893'
+LINEAGE_COUNTS = "54"
+WEEK = "26"
+SEQUENCED_RATIO = "0,5-2,5"
+MUTATIONS_COUNT = "4 581"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
 
 #vytvoreni prostredi
@@ -185,7 +187,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# [r'(\sna)\s+', ..]
-# re.gsub(item, r'\1&nbsp;', re.G)

@@ -64,9 +64,7 @@
             <tr>  
                 <td>Ostatní</td>
                 {% for item in line[1:] %}
-                    {% if float(item) > 0.9999 %}
-                        <td>{{'%.0f' % float(item)}}</td> 
-                    {% elif 0.00009 > float(item) %}
+                    {% if 0.00009 > float(item) %}
                         <td>{{'%.0f' % float(item)}}</td>  
                     {% else: %}
                         <td>{{'%.4f' % float(item)}}</td> 
