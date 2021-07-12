@@ -11,7 +11,7 @@ import datetime
 import csv
 from re import A
 from turtle import screensize
-from jinja2 import Environment, PackageLoader, select_autoescape, Template
+from jinja2 import DictLoader, Environment, FileSystemLoader, PackageLoader, select_autoescape, Template
 from weasyprint import HTML
 import shutil
 import os
@@ -19,19 +19,27 @@ import base64
 
 #update regularly
 DF_DATE = "2.7.2021"
-ACTUAL_SAMPLE_SIZE = "5 008"
+ACTUAL_SAMPLE_SIZE = "5 004"
 SAMPLES_FOR_ANALYSES = "4 790"
 SAMPLES_WEEKS = '4 113'
-SAMPLES_REGIONS ='4 893'
+SAMPLES_REGIONS ='4 894'
 LINEAGE_COUNTS = "54"
 WEEK = "26"
 SEQUENCED_RATIO = "0,5-2,5"
 MUTATIONS_COUNT = "4 581"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
+TYDNY_NAZPET = "15"
+
+# #vytvoreni prostredi
+# env = Environment(
+#     loader = PackageLoader('__main__', '.'),
+#     autoescape = select_autoescape(['html']),
+#     extensions=['jinja2.ext.debug']
+#     )
 
 #vytvoreni prostredi
 env = Environment(
-    loader = PackageLoader('__main__', '.'),
+    loader = FileSystemLoader('/Users/hanamedova/Documents/COG/report/'),
     autoescape = select_autoescape(['html']),
     extensions=['jinja2.ext.debug']
     )
@@ -45,7 +53,7 @@ def precti_seznam_kapitol(filename):
             seznam_kap.append(row)
     return seznam_kap 
 
-#vytvareni tabulek = vstup od Michala Kolare
+#vytvareni tabulek
 def input_table_tsv(src_file):
     "a text file transformation to an item"
     with open(src_file) as g:
@@ -53,10 +61,13 @@ def input_table_tsv(src_file):
         for line in g:
             items = line.split('\t')
             items = [item.strip("\"").strip("\n").strip(" ") for item in items]
-            lst.append(items)  
-    return lst
+            lst.append(items)    
+        for line in lst:
+            if lst[1][-1] == "Count":
+                line[-1] = int(line[-1])
+                table.sort(key=lambda x:x[-1], reverse=True)
+    return lst 
     
-
 def prejmenovani_hlavicky(hlavicka, zkratky_regionu):
     "in: tabulka, out: prvni radek s prejmenovanymi sloupci"
     print('-----------')
@@ -72,6 +83,24 @@ def prejmenovani_hlavicky(hlavicka, zkratky_regionu):
             print(item," - nazev nenalezen v hashovaci tabulce")    
     return list_zkratek
 
+#tab 5 and 6
+def is_non_zero_line(line):
+    "in: a line, boolean value"
+    summ = sum([ float(item) for item in line[-11:-2] ])
+    return summ > 0.0
+
+
+#tab7
+def is_non_zero_line_mutations(line):
+    "in: a line, boolean value"
+    summ = sum([ float(item) for item in line[1:] ])
+    return summ > 0.0
+
+#tab7
+def sort_time_table(tbl):
+    "in: slices of the table, only rows with mutations, out: table"
+    tbl.sort(key=lambda x:int(x[-1]), reverse=True)
+    return tbl
 
 def open_hash_table(filename):
     hash_table = {}   
@@ -106,18 +135,6 @@ def color_class(line,item):
        color_class = "" 
     return color_class
 
-
-#vytvareni tabulek - vstup od Martina Koliska
-def input_table_txt(src_file):
-    "a text file transformation to an item"
-    with open(src_file) as g:
-        lst = []
-        for line in g:
-            items = line.split(',')
-            items = [item.strip(" ").strip(" \n") for item in items]
-            lst.append(items[:-1])
-        del(lst[0])    
-    return lst
 
 def main():
     #the templates to be used    
@@ -166,13 +183,17 @@ def main():
             SAMPLES_WEEKS = SAMPLES_WEEKS,
             WEEK = WEEK,
             LINEAGE_COUNTS = LINEAGE_COUNTS,
+            SEQUENCED_RATIO = SEQUENCED_RATIO,
+            TYDNY_NAZPET = TYDNY_NAZPET,
             seznam_kapitol = seznam_kapitol, 
             enumerate = enumerate,  
             float = float, 
             int = int,
+            sort_time_table = sort_time_table,
             len = len,
-            input_table_txt = input_table_txt,
             input_table_tsv = input_table_tsv,
+            is_non_zero_line = is_non_zero_line, 
+            is_non_zero_line_mutations = is_non_zero_line_mutations,
             obrazek = obrazek,
             color_class = color_class,
             prejmenovani_hlavicky = prejmenovani_hlavicky,

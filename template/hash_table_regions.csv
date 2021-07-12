@@ -24,4 +24,6 @@ republika,ČR
 unknown,Neurčeno
 NA,Neurčeno
 Region,Kraj
-Total,Počet
+Total,Počet_vzorků
+Count,Počet_vzorků
+Pocet,Počet_vzorků
