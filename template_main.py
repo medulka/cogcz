@@ -39,7 +39,7 @@ TYDNY_NAZPET = "15"
 
 #vytvoreni prostredi
 env = Environment(
-    loader = FileSystemLoader('/Users/hanamedova/Documents/COG/report/'),
+    loader = FileSystemLoader('.'),
     autoescape = select_autoescape(['html']),
     extensions=['jinja2.ext.debug']
     )
