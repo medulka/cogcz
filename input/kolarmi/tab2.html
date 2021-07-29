@@ -1,86 +1,67 @@
-<div id="tabulka-varianty-zajmu">
-    <div class="tabulka tabulka-kratka">   
-        <div class="legenda">
-            <b>Tab. 2:</b> Varianty klasifikované evropskou organizací ECDC jako Varianty hodné zájmu (<a href="https://www.ecdc.europa.eu/en/covid-19/variants-concern">www.ecdc.europa.eu</a>). 
-            Výčet charakteristických mutací byl rozšířen dle CDC (<a href="https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-info.html">www.cdc.gov</a>). 
-        </div>  
-        <table id="varianty-zajmu">
+<div class="tabulka regiony">
+    <div class="legenda">
+        <b>Tab. 2:</b> 
+        Relativní zastoupení variant SARS-CoV-2 v&nbsp;krajích České republiky. 
+        Tabulka uvádí frekvenci výskytu variant SARS-CoV-2 ve vzorcích s datem odběru v posledních třech měsících před <nobr>{{DF_DATE}}</nobr> ve členění podle krajů. 
+        Pro tuto analýzu bylo vybráno z&nbsp;celkového datasetu {{ACTUAL_SAMPLE_SIZE}}, u&nbsp;nichž je dostupná validní sekvence celého genomu a informace o&nbsp;datu odběru. 
+        V&nbsp;tabulce jsou uvedeny všechny identifikované varianty. 
+        Počet vzorků, ve kterých byla identifikována daná varianta, je uveden v posledním sloupci. 
+        Počet vzorků z&nbsp;daného kraje je uveden v posledním řádku. 
+        Barevně jsou označeny Varianty hodné pozornosti (<i>Variants of Concern</i>, tmavší zabarvení) 
+        a Varianty hodné zájmu (<i>Variants of Interest</i>, světlejší zabarvení).
+        <table>
+            {% set table = input_table_tsv("input/kolarmi/tableAllLineage.tsv") %}
+            {% set hlavicka = prejmenovani_hlavicky(table[0],zkratky_regionu) %}
+            {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351','P.1', 'B.1.617.2'] %}
+            {% set voi = ['B.1.525','B.1.427','B.1.429','P.3','B.1.616','B.1.617.1', 'B.1.617.3','B.1.620', 'B.1.621']%}
             <thead>
                 <tr>
-                    <th>Pango linie</th>
-                    <th>Mutace ve spike proteinu</th>
-                    <th>Nexstrain linie</th>
-                    <th>Prvni detekce</th>
-                    <th>Vlastnosti</th>
-                </tr>    
+                    {% for item in hlavicka %}
+                    <th>{{item}}</th>
+                    {% endfor %}
+                </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="nobr">Eta (B.1.525)</td>
-                    <td>A67V, Δ69/70, Δ144, E484K, D614G, Q677H, F888L</td>
-                    <td><nobr>20A/S:484K</nobr></td>
-                    <td>Velká Británie / Nigérie - prosinec 2020</td>
-                    <td>Potenciální snížení neutralizace léčbou monoklonálními protilátkami.
-                        Potenciální snížení neutralizace pomocí rekonvalescentních a postvakcinačních sér.</td>
-                </tr>
 
-                <tr>
-                    <td class="nobr">B.1.427/B.1.429</td>
-                    <td>S13I, W152C, L452R, D614G</td>
-                    <td><nobr>20C/S:452R</nobr></td>
-                    <td>USA (Kalifornie) - září 2020</td>
-                    <td>Přibližně o 20&nbsp;% vyšší přenos.
-                        Mírný pokles v citlivosti na bamlanivimab a etesevimab.
-                        Snížení neutralizace pomocí rekonvalescentních a postvakcinačních sér.</td>
-                </tr>
-
-                <tr>
-                    <td class="nobr">Theta (P.3)</td>
-                    <td>E484K, N501Y, D614G, P681H</td>
-                    <td><nobr></nobr></td>
-                    <td>Filipíny - leden 2021</td>
-                    <td>Potenciální snížení neutralizace léčbou monoklonálními protilátkami.
-                        Potenciální snížená neutralizace postvakcinačním sérem.</td>
-                </tr>
-        
-                <tr>
-                    <td class="nobr">B.1.616</td>
-                    <td>V483A, D614G, H655Y, G669S</td>
-                    <td>20A</td>
-                    <td>Francie - únor 2021</td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td class="nobr">Kappa (B.1.617.1)</td>
-                    <td>(T95I), G142D, E154K, L452R, E484Q, D614G, P681R, Q1071H</td>
-                    <td>20A/S:154K </td>
-                    <td>Indie - prosinec 2020</td>
-                    <td>Potenciální snížení neutralizace léčbou monoklonálními protilátkami.
-                        Potenciální snížená neutralizace postvakcinačním sérem.</td>
-                </tr>
-
-                <tr>
-                    <td class="nobr">B.1.620</td>
-                    <td>S477N, E484K, D614G, P681H</td>
-                    <td></td>
-                    <td>neznámý - únor 2021</td>
-                    <td>Potenciální snížení neutralizace léčbou monoklonálními protilátkami.
-                        Potenciální snížená neutralizace postvakcinačním sérem.</td>
-                </tr>
-                <tr>
-                    <td class="nobr">B.1.621</td>
-                    <td>R346K, E484K, N501Y, D614G, P681H</td>
-                    <td></td>
-                    <td>Kolumbie - leden 2021</td>
-                    <td>Potenciální snížení neutralizace léčbou monoklonálními protilátkami.
-                        Potenciální snížená neutralizace postvakcinačním sérem.</td>
-                </tr>
-            </tbody>
+                {% for line in table[1:-2] %}
+                    {% if line[0] in voi %}
+                        {% set cls = "interest" %}
+                    {% elif line[0] in voc %}
+                        {% set cls = "concern" %}
+                    {% else %}
+                        {% set cls = "" %}
+                    {% endif %}         
+                    <tr class="{{cls}}">  
+                        <td><nobr>{{line[0]}}</nobr></td>
+                        {% for item in line[1:] %}
+                            {% if float(item) > 0.9999 %}
+                                <td>{{'%.0f' % float(item)}}</td> 
+                            {% elif 0.00009 > float(item) %}
+                                <td>{{'%.0f' % float(item)}}</td>  
+                            {% else: %}
+                                <td>{{'%.4f' % float(item)}}</td> 
+                            {% endif %} 
+                        {% endfor %}
+                    </tr>                            
+                {% endfor %}
+    
+             
+                {% set line = table[-2][1:] %}
+                <tr>  
+                    <td>Ostatní</td>
+                    {% for item in line %}
+                        <td>{{item}}</td>
+                    {% endfor %}
+                </tr>   
+                
+                {% set line = table[-1] %}
+                <tr>  
+                    <td>Počet vzorků</td>
+                    {% for item in line[1:] %}
+                        <td class="{{color_class(line,item)}}">{{ item }}</td>                 
+                    {% endfor %}
+                </tr>  
+            </tbody>   
         </table>
-        <div>
-            (*) Detekováno v některých sekvencích dané linie.
-        </div>
     </div>
 </div>
-

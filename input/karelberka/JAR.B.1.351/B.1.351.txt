@@ -1,0 +1,12 @@
+Vyobrazení trimerické struktury Spike proteinu viru SARS-CoV-2. Spike protein je vyznaèen v reprezentaci cartoon v šedé barvì, èervenì jsou zvýraznìny pozice mutací JAR varianty B.1.351, šedými kostkami místa glykosylace. Vazebná doména proteinu (receptor-binding domain, RBD), zodpovìdná za navázání receptoru ACE2, je vyznaèena žlutou barvou, zelenì aminokyseliny pøímo se vážící na receptor ACE2
+
+Tabulka charakteristických mutací Spike proteinu varianty B.1.351
+S	D80A
+S	D215G
+S	del241/243
+S	K417N
+S	E484K
+S	N501Y
+S	D614G
+S	A701V
+zdroj: https://outbreak.info/situation-reports?pango=B.1.351

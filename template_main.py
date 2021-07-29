@@ -18,17 +18,17 @@ import os
 import base64
 
 #update regularly
-DF_DATE = "2.7.2021"
-ACTUAL_SAMPLE_SIZE = "5 004"
-SAMPLES_FOR_ANALYSES = "4 790"
-SAMPLES_WEEKS = '4 113'
-SAMPLES_REGIONS ='4 894'
-LINEAGE_COUNTS = "54"
-WEEK = "26"
-SEQUENCED_RATIO = "0,5-2,5"
-MUTATIONS_COUNT = "4 581"
+#change in the reporting since 16.7.2021 (week28) - only last 12 months
+DF_DATE = "16.7.2021"
+ACTUAL_SAMPLE_SIZE = "1 393"
+SAMPLES_FOR_ANALYSES = "1 393"
+LINEAGE_COUNTS = "17"
+WEEK = "28"
+STARTING_WEEK = "17"
+SEQUENCED_RATIO = "3,2"
+MUTATIONS_COUNT = "1 800"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
-TYDNY_NAZPET = "15"
+
 
 # #vytvoreni prostredi
 # env = Environment(
@@ -83,20 +83,20 @@ def prejmenovani_hlavicky(hlavicka, zkratky_regionu):
             print(item," - nazev nenalezen v hashovaci tabulce")    
     return list_zkratek
 
-#tab 5 and 6
+#tab 3 and 4
 def is_non_zero_line(line):
     "in: a line, boolean value"
     summ = sum([ float(item) for item in line[-11:-2] ])
     return summ > 0.0
 
 
-#tab7
+#tab5
 def is_non_zero_line_mutations(line):
     "in: a line, boolean value"
     summ = sum([ float(item) for item in line[1:] ])
     return summ > 0.0
 
-#tab7
+#tab5
 def sort_time_table(tbl):
     "in: slices of the table, only rows with mutations, out: table"
     tbl.sort(key=lambda x:int(x[-1]), reverse=True)
@@ -178,17 +178,17 @@ def main():
             NOW = NOW, 
             DF_DATE = DF_DATE,
             ACTUAL_SAMPLE_SIZE = ACTUAL_SAMPLE_SIZE,
-            SAMPLES_REGIONS = SAMPLES_REGIONS,
             SAMPLES_FOR_ANALYSES = SAMPLES_FOR_ANALYSES,
-            SAMPLES_WEEKS = SAMPLES_WEEKS,
+            MUTATIONS_COUNT = MUTATIONS_COUNT,
             WEEK = WEEK,
             LINEAGE_COUNTS = LINEAGE_COUNTS,
             SEQUENCED_RATIO = SEQUENCED_RATIO,
-            TYDNY_NAZPET = TYDNY_NAZPET,
+            STARTING_WEEK = STARTING_WEEK,
             seznam_kapitol = seznam_kapitol, 
             enumerate = enumerate,  
             float = float, 
             int = int,
+            str = str,
             sort_time_table = sort_time_table,
             len = len,
             input_table_tsv = input_table_tsv,
@@ -197,7 +197,7 @@ def main():
             obrazek = obrazek,
             color_class = color_class,
             prejmenovani_hlavicky = prejmenovani_hlavicky,
-            zkratky_regionu = zkratky_regionu
+            zkratky_regionu = zkratky_regionu,    
         )
         f_result.write(content)     
  

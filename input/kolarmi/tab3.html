@@ -1,40 +1,48 @@
-<div class="tabulka regiony">
-    
+<div class="tabulka casova">
     <div class="legenda">
-        <b>Tab. 1:</b> 
-        Relativní zastoupení variant SARS-CoV-2 v&nbsp;krajích České republiky. 
-        Tabulka uvádí frekvenci výskytu variant SARS-CoV-2 ve vzorcích s&nbsp;datem odběru mezi <nobr>1. 1. 2021</nobr> a <nobr>{{DF_DATE}}</nobr> ve členění podle krajů. 
-        Pro tuto analýzu bylo vybráno z&nbsp;celkového datasetu {{ACTUAL_SAMPLE_SIZE}}, u&nbsp;nichž je dostupná validní sekvence celého genomu a informace o&nbsp;datu odběru. 
-        V&nbsp;tabulce jsou uvedeny jen varianty přítomné v&nbsp;alespoň jednom kraji nejméně ve dvou izolátech a zároveň ve více než 1&nbsp;% analyzovaných vzorků. 
-        Počet vzorků, ve kterých byla identifikována daná varianta, je uveden v posledním sloupci. Počet vzorků z&nbsp;daného kraje je uveden v&nbsp;posledním řádku. 
-        
+        <b>Tab. 3:</b> 
+        Tabulka uvádí relativní zastoupení výskytu nejčastějších variant SARS-CoV-2 ve vzorcích od {{STARTING_WEEK}}. týdne roku 2021.  
+        V&nbsp;tabulce jsou uvedeny jen varianty přítomné v&nbsp;daném týdnu nejméně ve třech izolátech a zároveň ve více než 10&nbsp;% analyzovaných vzorků. 
         Barevně jsou označeny Varianty hodné pozornosti (<i>Variants of Concern</i>, tmavší zabarvení) 
-        a Varianty hodné zájmu (<i>Variants of Interest</i>, světlejší zabarvení).
+        a Varianty hodné zájmu (<i>Variants of Interest</i>, světlejší zabarvení).  
+        Počet vzorků z&nbsp;daného kraje je uveden v posledním řádku. 
     </div>
 
     <table>
-        {% set table = input_table_tsv("input/kolarmi/tableLineage.tsv") %}
-        {% set hlavicka = prejmenovani_hlavicky(table[0], zkratky_regionu) %}
-        {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2'] %}
-        {% set voi = ['B.1.525','B.1.427','B.1.429','P.3','B.1.616','B.1.617.1', 'B.1.617.3', 'B.1.620', 'B.1.621']%}
         <thead>
             <tr>
-                {% for item in hlavicka %}
-                <th>{{item}}</th>
-                {% endfor %}
+                <th>Týden</th>
+                <th>Všechny týdny</th>
+                <th>2021_17</th>
+                <th>2021_18</th>
+                <th>2021_19</th>
+                <th>2021_20</th>
+                <th>2021_21</th>
+                <th>2021_22</th>
+                <th>2021_23</th>
+                <th>2021_24</th>
+                <th>2021_25</th>
+                <th>2021_26</th>
+                <th>2021_27</th>
+                <th>Počet vzorků</th>
             </tr>
         </thead>
         <tbody>
-            {% for line in table[1:-2] %}
-                {% if line[0] in voi %}
-                    {% set cls = "interest" %}
-                {% elif line[0] in voc %}
-                    {% set cls = "concern" %}
-                {% else %}
-                    {% set cls = "" %}
-                {% endif %}         
-                <tr class="{{cls}}">  
-                    <td><nobr>{{line[0]}}</nobr></td>
+            {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351','P.1', 'B.1.617.2'] %}
+            {% set voi = ['B.1.525','B.1.427','B.1.429','P.3','B.1.616','B.1.617.1', 'B.1.617.3','B.1.620', 'B.1.621']%}
+            {% set table = input_table_tsv("input/kolarmi/tableLineageWeek.tsv") %}
+            {% for line in table[1:-2] %}  
+                {% if is_non_zero_line(line) %}
+                    {% if line[0] in voi %}
+                        {% set cls = "interest" %}
+                    {% elif line[0] in voc %}
+                        {% set cls = "concern" %}
+                    {% else %}
+                        {% set cls = "" %}
+                    {% endif %}   
+
+                    <tr class="{{cls}}">  
+                        <td><nobr>{{line[0]}}</nobr></td>
                     {% for item in line[1:] %}
                         {% if float(item) > 0.9999 %}
                             <td>{{'%.0f' % float(item)}}</td> 
@@ -44,31 +52,26 @@
                             <td>{{'%.4f' % float(item)}}</td> 
                         {% endif %} 
                     {% endfor %}
-                </tr>                            
-            {% endfor %}
+                    </tr> 
+                {% endif %}                                            
+            {% endfor %} 
 
-            {% set line = table[-2][1:] %}
+            {% set line = table[-2] %}
             <tr>  
                 <td>Ostatní</td>
-                {% for item in line %}
-                    {% if float(item) > 0.9999 %}
-                        <td>{{'%.0f' % float(item)}}</td> 
-                    {% elif 0.00009 > float(item) %}
-                        <td>{{'%.0f' % float(item)}}</td>  
-                    {% else: %}
-                        <td>{{'%.4f' % float(item)}}</td> 
-                    {% endif %} 
+                {% for item in line[1:] %}
+                    <td>{{item}}</td>
                 {% endfor %}
             </tr>   
             
-            {% set line = table[-1][1:] %}
+            {% set line = table[-1] %}
             <tr>  
                 <td>Počet vzorků</td>
-                {% for item in line %}
-                    <td class="{{color_class(line,item)}}">{{ item }}</td>                 
+                {% for item in line[1:] %}
+                <td>{{ item }}</td> 
                 {% endfor %}
-            </tr>  
+            </tr>                 
         </tbody>   
     </table>
-
+    
 </div>
