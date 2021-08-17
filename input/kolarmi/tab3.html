@@ -13,23 +13,15 @@
             <tr>
                 <th>Týden</th>
                 <th>Všechny týdny</th>
-                <th>2021_17</th>
-                <th>2021_18</th>
-                <th>2021_19</th>
-                <th>2021_20</th>
-                <th>2021_21</th>
-                <th>2021_22</th>
-                <th>2021_23</th>
-                <th>2021_24</th>
-                <th>2021_25</th>
-                <th>2021_26</th>
-                <th>2021_27</th>
+                {% for w in range( 19,30,1 ) %}  
+                    <th>2021_{{w}}</th>
+                {% endfor %}
                 <th>Počet vzorků</th>
             </tr>
         </thead>
         <tbody>
-            {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351','P.1', 'B.1.617.2'] %}
-            {% set voi = ['B.1.525','B.1.427','B.1.429','P.3','B.1.616','B.1.617.1', 'B.1.617.3','B.1.620', 'B.1.621']%}
+            {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2', "AY.2"] %}
+            {% set voi = ['B.1.525','P.3','B.1.617.1', 'B.1.620', 'B.1.621', "C.37", "AY.1"]%}
             {% set table = input_table_tsv("input/kolarmi/tableLineageWeek.tsv") %}
             {% for line in table[1:-2] %}  
                 {% if is_non_zero_line(line) %}
@@ -60,7 +52,7 @@
             <tr>  
                 <td>Ostatní</td>
                 {% for item in line[1:] %}
-                    <td>{{item}}</td>
+                    <td>{{ item }}</td>
                 {% endfor %}
             </tr>   
             

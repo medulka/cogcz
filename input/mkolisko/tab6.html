@@ -15,17 +15,9 @@
         <thead>
             <tr>
                 <th>Týden</th>
-                <th>2021_17</th>
-                <th>2021_18</th>
-                <th>2021_19</th>
-                <th>2021_20</th>
-                <th>2021_21</th>
-                <th>2021_22</th>
-                <th>2021_23</th>
-                <th>2021_24</th>
-                <th>2021_25</th>
-                <th>2021_26</th>
-                <th>2021_27</th>
+                {% for w in range( 19,30,1 ) %}  
+                    <th>2021_{{w}}</th>
+                {% endfor %}
                 <th>Počet vzorků</th>
             </tr>
         </thead>

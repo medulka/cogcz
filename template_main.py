@@ -19,23 +19,19 @@ import base64
 
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
-DF_DATE = "16.7.2021"
-ACTUAL_SAMPLE_SIZE = "1 393"
-SAMPLES_FOR_ANALYSES = "1 393"
-LINEAGE_COUNTS = "17"
-WEEK = "28"
-STARTING_WEEK = "17"
-SEQUENCED_RATIO = "3,2"
-MUTATIONS_COUNT = "1 800"
+DF_DATE = "30.7.2021"
+ACTUAL_SAMPLE_SIZE = "1 176"
+LINEAGE_COUNTS = "15"
+VOC = "čtyři"
+VOI = "dvě"
+WEEK = "30"
+STARTING_WEEK = "19"
+SEQUENCED_RATIO = "5,7"
+MUTATIONS_COUNT = "1 400"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
 
-
-# #vytvoreni prostredi
-# env = Environment(
-#     loader = PackageLoader('__main__', '.'),
-#     autoescape = select_autoescape(['html']),
-#     extensions=['jinja2.ext.debug']
-#     )
+#  3  {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2'] %}
+#         {% set voi = ['B.1.525','P.3','B.1.617.1', 'B.1.620', 'B.1.621', "C.37", "AY.1", "AY.2", "AY.3"]
 
 #vytvoreni prostredi
 env = Environment(
@@ -178,7 +174,8 @@ def main():
             NOW = NOW, 
             DF_DATE = DF_DATE,
             ACTUAL_SAMPLE_SIZE = ACTUAL_SAMPLE_SIZE,
-            SAMPLES_FOR_ANALYSES = SAMPLES_FOR_ANALYSES,
+            VOC = VOC,
+            VOI = VOI,
             MUTATIONS_COUNT = MUTATIONS_COUNT,
             WEEK = WEEK,
             LINEAGE_COUNTS = LINEAGE_COUNTS,
