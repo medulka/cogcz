@@ -26,7 +26,7 @@
 
 @page {
     @top-left {
-        background: #2a7e10;
+        background: #CAB2D6;
         content: counter(page);
         height: 1cm;
         text-align: center;
@@ -34,7 +34,7 @@
         margin-bottom: 0.5cm;
     }
     @top-center {
-        background: #1b9410;
+        background: #CAB2D6;
         content: '';
         display: block;
         height: .05cm;
@@ -111,7 +111,7 @@ h4 {
 
 hr {
     display: block;
-    background: #2a7e10;
+    background: #CAB2D6;
     height: 0.1cm;
     content: '';
     opacity: .5;
@@ -313,9 +313,9 @@ article#kontakty dl dt {
 
 
 .tabulka th {
-    border-top: 0.5mm solid #1b9410;
-    border-bottom: 0.3mm solid #1b9410;
-    background: #1b9410;
+    border-top: 0.5mm solid #CAB2D6;
+    border-bottom: 0.3mm solid #CAB2D6;
+    background: #CAB2D6;
     color: black;
     font-weight: normal;
     padding-top: 0.25cm;
@@ -342,7 +342,7 @@ article#kontakty dl dt {
 }
 
 .tabulka tbody tr:last-child td {
-    border-bottom: 0.5mm solid #1b9410;
+    border-bottom: 0.5mm solid #CAB2D6;
 }
     
 .tabulka th, td {
@@ -350,11 +350,11 @@ article#kontakty dl dt {
 }
 
 .tabulka .interest {
-    background: #a7c7a4;
+    background: #cab2d638;
 }
 
 .tabulka .concern {
-    background:#7fcf78;
+    background:#cab2d6a9;
 }
 
 
@@ -387,9 +387,9 @@ article#kontakty dl dt {
 }
 
 .tabulka.casova th {
-    border-top: 0.5mm solid #1b9410;
-    border-bottom: 0.3mm solid #1b9410;
-    background: #1b9410;
+    border-top: 0.5mm solid #CAB2D6;
+    border-bottom: 0.3mm solid #CAB2D6;
+    background: #CAB2D6;
     color: black;
     font-weight: normal;
     padding-top: 0.1cm;
@@ -423,24 +423,24 @@ article#kontakty dl dt {
 }
 
 /* pocty barevne */
-.tabulka .level_80 td {
-    background:#4404f5;
+.tabulka .level_80 {
+    background:#ffffff;
 }
 
-.tabulka .level_60 td {
-    background:#da6868;
+.tabulka .level_60 {
+    background:#ffffff;
 }
 
-.tabulka .level_40 td {
-    background:#da6868;
+.tabulka .level_40 {
+    background:#ffffff;
 }
 
-.tabulka .level_20 td {
-    background:#da6868;
+.tabulka .level_20 {
+    background:#ffffff;
 }
 
-.tabulka .level_01 td {
-    background:#2a7e10;
+.tabulka .level_00 {
+    background: #ffffff;;
 }
 
 
@@ -471,7 +471,7 @@ article#kontakty dl dt {
 
 hr .contributions {
     display: block;
-    background:#2a7e10;
+    background:#CAB2D6;
     height: 0.05cm;
     content: '';
     opacity: .2;

@@ -6,6 +6,7 @@
         Barevně jsou označeny Varianty hodné pozornosti (<i>Variants of Concern</i>, tmavší zabarvení) 
         a Varianty hodné zájmu (<i>Variants of Interest</i>, světlejší zabarvení).  
         Počet vzorků z&nbsp;daného kraje je uveden v posledním řádku. 
+        Pod "None" jsou zařazeny validní sekvence, které nástrojem Pangolin nebyly přiřazeny k žádné variantě. 
     </div>
 
     <table>
@@ -13,15 +14,15 @@
             <tr>
                 <th>Týden</th>
                 <th>Všechny týdny</th>
-                {% for w in range( 19,30,1 ) %}  
+                {% for w in range( 21,32,1 ) %}  
                     <th>2021_{{w}}</th>
                 {% endfor %}
                 <th>Počet vzorků</th>
             </tr>
         </thead>
         <tbody>
-            {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2', "AY.2"] %}
-            {% set voi = ['B.1.525','P.3','B.1.617.1', 'B.1.620', 'B.1.621', "C.37", "AY.1"]%}
+            {% set voc = VOC %}
+            {% set voi = VOI %}
             {% set table = input_table_tsv("input/kolarmi/tableLineageWeek.tsv") %}
             {% for line in table[1:-2] %}  
                 {% if is_non_zero_line(line) %}
@@ -56,14 +57,13 @@
                 {% endfor %}
             </tr>   
             
-            {% set line = table[-1] %}
+            {% set line = table[-1][1:] %}
             <tr>  
                 <td>Počet vzorků</td>
-                {% for item in line[1:] %}
-                <td>{{ item }}</td> 
+                {% for item in line %}  
+                    <td class="{{ color_class(item,line) }}">{{ item }}</td>                 
                 {% endfor %}
-            </tr>                 
+            </tr>                
         </tbody>   
-    </table>
-    
+    </table>  
 </div>

@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <th>Týden</th>
-                {% for w in range( 19,30,1 ) %}  
+                {% for w in range( 21,32,1 ) %}  
                     <th>2021_{{w}}</th>
                 {% endfor %}
                 <th>Počet vzorků</th>
@@ -24,7 +24,7 @@
         <tbody>     
             {% set table = input_table_tsv("input/mkolisko/tab6.tsv") %}   
             {% for line in sort_time_table(table[1:-3]) %}
-                {% if is_non_zero_line_mutations(line) %}
+                {% if is_non_zero_line(line) %}
                     <tr >  
                         <td>{{line[0]}}</td>
                         {% for item in line[1:] %}
@@ -47,19 +47,19 @@
                     {% if 0.00009 > float(item) %}
                         <td>{{'%.0f' % float(item)}}</td>  
                     {% else: %}
-                        <td>{{'%.4f' % float(item)}}</td> 
+                        <td>{{'%.2f' % float(item)}}</td> 
                     {% endif %} 
                 {% endfor %}
             </tr>  
            
-            {% set line = table[-1] %}  
+       
+            {% set line = table[-1][1:] %}
             <tr>  
                 <td>Počet vzorků</td>
-                {% for item in line[1:] %}
-                    <td class="{{color_class(line,item)}}">{{ item }}</td>                 
+                {% for item in line %}  
+                    <td class="{{ color_class(item,line) }}">{{ item }}</td>                 
                 {% endfor %}
-            </tr>   
-
+            </tr>  
         </tbody>   
     </table>
    

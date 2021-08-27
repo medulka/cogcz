@@ -48,11 +48,13 @@
                 {% endfor %}
             </tr>   
 
-            {% set line = table[-1] %}
+
+           
+            {% set line = table[-1][1:] %}
             <tr>  
                 <td>Počet vzorků</td>
-                {% for item in line[1:] %}
-                <td>{{ item }}</td> 
+                {% for item in line %}  
+                    <td class="{{ color_class(item,line) }}">{{ item }}</td>                 
                 {% endfor %}
             </tr>  
 

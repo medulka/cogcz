@@ -19,19 +19,17 @@ import base64
 
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
-DF_DATE = "30.7.2021"
-ACTUAL_SAMPLE_SIZE = "1 176"
-LINEAGE_COUNTS = "15"
-VOC = "čtyři"
-VOI = "dvě"
-WEEK = "30"
-STARTING_WEEK = "19"
-SEQUENCED_RATIO = "5,7"
-MUTATIONS_COUNT = "1 400"
+DF_DATE = "13.8.2021"
+ACTUAL_SAMPLE_SIZE = "1 218"
+LINEAGE_COUNTS = "19"
+WEEK = "32"
+STARTING_WEEK = "21"
+SEQUENCED_RATIO = "8,86"
+MUTATIONS_COUNT = "1 200"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
-
-#  3  {% set voc = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2'] %}
-#         {% set voi = ['B.1.525','P.3','B.1.617.1', 'B.1.620', 'B.1.621', "C.37", "AY.1", "AY.2", "AY.3"]
+VOC = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2', "AY.1", "AY.2", "AY.4", "AY.5", "AY.6", "AY.9","AY.12" ]
+VOI = ['B.1.525','P.3','B.1.617.1', 'B.1.620', 'B.1.621', "C.37" ]
+# uprav tyden v range()
 
 #vytvoreni prostredi
 env = Environment(
@@ -59,10 +57,9 @@ def input_table_tsv(src_file):
             items = [item.strip("\"").strip("\n").strip(" ") for item in items]
             lst.append(items)    
         for line in lst:
-            if lst[1][-1] == "Count":
-                line[-1] = int(line[-1])
-                table.sort(key=lambda x:x[-1], reverse=True)
-    return lst 
+            for item in line:
+                item.replace('NA','0')
+        return lst 
     
 def prejmenovani_hlavicky(hlavicka, zkratky_regionu):
     "in: tabulka, out: prvni radek s prejmenovanymi sloupci"
@@ -79,20 +76,11 @@ def prejmenovani_hlavicky(hlavicka, zkratky_regionu):
             print(item," - nazev nenalezen v hashovaci tabulce")    
     return list_zkratek
 
-#tab 3 and 4
 def is_non_zero_line(line):
     "in: a line, boolean value"
     summ = sum([ float(item) for item in line[-11:-2] ])
     return summ > 0.0
 
-
-#tab5
-def is_non_zero_line_mutations(line):
-    "in: a line, boolean value"
-    summ = sum([ float(item) for item in line[1:] ])
-    return summ > 0.0
-
-#tab5
 def sort_time_table(tbl):
     "in: slices of the table, only rows with mutations, out: table"
     tbl.sort(key=lambda x:int(x[-1]), reverse=True)
@@ -108,27 +96,20 @@ def open_hash_table(filename):
             hash_table[key] = value
         return hash_table   
 
-def color_class(line,item):
+
+def color_class(item,line):
     "in: item of a sublist, out: str"
-    max_item = max([int(i) for i in line[1:] if i != ''])
-    if item != "":
-        item = int(item)
-        if item/max_item  > 0.8:
-            color_class = "level_80"
-        elif item/max_item  > 0.6:
-            color_class = "level_60"
-        elif item/max_item  > 0.4:
-            color_class = "level_40"
-        elif item/max_item  > 0.4:
-            color_class = "level_40"
-        elif item/max_item  > 0.2:
-            color_class = "level_20"
-        elif item/max_item  > 0.01:
-            color_class = "level_01" 
+    max_item = max([int(i) for i in line if i != '' and i != 'NA'])
+    color_class = ""
+    if item != "" and item != 'NA':
+        ratio = int(item)/max_item
+        for level in [80,60,40,20]:
+            if ratio >= level/100:
+                color_class = 'level_%02d' % level
+                break
         else:
-            color_class = ""
-    else:
-       color_class = "" 
+            color_class = 'level_00'
+    print(color_class)
     return color_class
 
 
@@ -190,7 +171,6 @@ def main():
             len = len,
             input_table_tsv = input_table_tsv,
             is_non_zero_line = is_non_zero_line, 
-            is_non_zero_line_mutations = is_non_zero_line_mutations,
             obrazek = obrazek,
             color_class = color_class,
             prejmenovani_hlavicky = prejmenovani_hlavicky,
