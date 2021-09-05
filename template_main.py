@@ -19,13 +19,13 @@ import base64
 
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
-DF_DATE = "13.8.2021"
-ACTUAL_SAMPLE_SIZE = "1 144"
-LINEAGE_COUNTS = "19"
-WEEK = "32"
-STARTING_WEEK = "21"
-SEQUENCED_RATIO = "8,86"
-MUTATIONS_COUNT = "1 200"
+DF_DATE = "27.8.2021"
+ACTUAL_SAMPLE_SIZE = "1 578"
+LINEAGE_COUNTS = "25"
+WEEK = "34"
+STARTING_WEEK = "23"
+SEQUENCED_RATIO = "12,1"
+MUTATIONS_COUNT = "1 400"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
 VOC = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2', "AY.1", "AY.2", "AY.4", "AY.5", "AY.6", "AY.9","AY.12" ]
 VOI = ['B.1.525','P.3','B.1.617.1', 'B.1.620', 'B.1.621', "C.37" ]

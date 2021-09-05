@@ -11,8 +11,9 @@ from collections import Counter
 from pprint import pprint
 # sns.set_theme(style="whitegrid")
 
-src1 = "/Users/hanamedova/Documents/COG/week32/datafreeze-2021-08-13_12_weeks_good.pangolin-3.1.11-pangoLEARN-2021-08-09.csv"
-src2 = "/Users/hanamedova/Documents/COG/week32/datafreeze-2021-08-13_12_weeks_good.tsv"
+src1 = "/Users/hanamedova/Documents/COG/week34/datafreeze-2021-08-27_12_weeks_good.pangolin-3.1.11-pangoLEARN-2021-08-24.csv"
+src2 = "/Users/hanamedova/Documents/COG/week34/datafreeze-2021-08-27_12_weeks_good.tsv"
+
 
 def join_tables(src1, src2):
     d1 = {}
