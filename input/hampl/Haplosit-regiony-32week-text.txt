@@ -1,8 +1,0 @@
-Na tvorbu haplotypové sítě byl použit výběr sekvencí 687 vzorků z České republiky shromážděných od 18. 6. 2021. Velikost uzlů odpovídá počtu vzorků s identickou sekvencí DNA. Spojnice naznačují pravděpodobné příbuzenské vztahy, počet krátkých kolmých úseček odpovídá počtu mutačních změn. Uzly jsou vybarveny podle kraje a v případě, že se identický genotyp vyskytuje ve více krajích, jsou vybarveny jako koláčový graf. 
-
-V síti jsou místy patrné drobné krajově specifické shluky, jejichž vznik je však ovlivněn nerovnoměrností sběru vzorků. 
-
-Velký shluk v levé části grafu představuje vzorky náležející k variantě alfa (B.1.1.7). 
-Shluk v pravé části grafu představuje poměrně rozrůzněnou dominantní variantu delta (B.1.617.2). 
-Několik genotypů této varianty se mezi vzorky objevuje s vyšší frekvencí a v grafu jsou vyznačeny jako velké koláče. Vzácnější varianty C.36.3, B.1 a B.1.1 se nachází ve středu grafu.   
-Poznámka: Soubor Haplosit-regiony-32week.nex je zdroják pro vykreslení sítě v programu PopART. Jan Pačes ho chtěl umístit na web.
