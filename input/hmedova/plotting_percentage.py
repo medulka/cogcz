@@ -150,7 +150,7 @@ def create_graph(labels, data):
         
         print(heights)
 
-    ax.legend(ncol = ncol, loc="center", bbox_to_anchor=(0.5, 1.05), frameon=True, prop={'size':12}).draw_frame(False)
+    ax.legend(ncol = (ncol//2), loc="center", bbox_to_anchor=(0.5, 1.05), frameon=True, prop={'size':12}).draw_frame(False)
     ax.set()
     ax.set_ylabel(ylabel="Počet záchytů (%)", fontsize = 12)
     ax.set_xlabel(xlabel="Týden v roce", fontsize =12)
