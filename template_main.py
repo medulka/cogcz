@@ -21,14 +21,14 @@ import base64
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
 DF_DATE = "27.8.2021"
 ACTUAL_SAMPLE_SIZE = "1 578"
-LINEAGE_COUNTS = "25"
+LINEAGE_COUNTS = "24"
 WEEK = "34"
 STARTING_WEEK = "23"
 SEQUENCED_RATIO = "12,1"
 MUTATIONS_COUNT = "1 400"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
-VOC = ['B.1.1.7','B.1.1.7+E484K', 'B.1.351', 'P.1', 'B.1.617.2', "AY.1", "AY.2", "AY.4", "AY.5", "AY.5.2", "AY.6", "AY.7.2", "AY.9", "AY.12", "AY.16", "AZ.20", "AY.21" ]
-VOI = ['B.1.525','P.3','B.1.617.1', 'B.1.620', 'B.1.621', "C.37" ]
+VOC = ['B.1.351', 'P.1', 'B.1.617.2', "AY.1", "AY.2", "AY.4", "AY.5", "AY.5.2", "AY.6", "AY.7.2", "AY.9", "AY.12", "AY.16", "AY.20", "AY.21" ]
+VOI = ['B.1.620', 'B.1.621', "C.37" ]
 # uprav tyden v range()
 
 #vytvoreni prostredi
