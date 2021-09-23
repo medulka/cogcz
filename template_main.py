@@ -19,11 +19,11 @@ import base64
 
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
-DF_DATE = "27.8.2021"
-ACTUAL_SAMPLE_SIZE = "1 578"
+DF_DATE = "10.9.2021"
+ACTUAL_SAMPLE_SIZE = "1 739"
 LINEAGE_COUNTS = "24"
-WEEK = "34"
-STARTING_WEEK = "23"
+WEEK = "36"
+STARTING_WEEK = "25"
 SEQUENCED_RATIO = "12,1"
 MUTATIONS_COUNT = "1 400"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
@@ -83,7 +83,7 @@ def is_non_zero_line(line):
 
 def sort_time_table(tbl):
     "in: slices of the table, only rows with mutations, out: table"
-    tbl.sort(key=lambda x:int(x[-1]), reverse=True)
+    tbl.sort(key=lambda x:int(float(x[-1])), reverse=True)
     return tbl
 
 def open_hash_table(filename):
