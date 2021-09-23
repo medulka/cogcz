@@ -99,7 +99,7 @@ def open_hash_table(filename):
 
 def color_class(item,line):
     "in: item of a sublist, out: str"
-    max_item = max([int(float((i)) for i in line if i != '' and i != 'NA'])
+    max_item = max([int(float(i)) for i in line if i != '' and i != 'NA'])
     color_class = ""
     if item != "" and item != 'NA':
         ratio = int(float(item))/max_item
