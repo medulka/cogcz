@@ -34,7 +34,6 @@
     Deeskalovány byly Varianty hodné pozornosti Alpha (<nobr>B.1.1.7</nobr>) a <nobr>B.1.1.7+E484K</nobr>, 
     Varianty hodné zájmu Eta (<nobr>B.1.525</nobr>), Epsilon (<nobr>B.1.427/B.1.429</nobr>), Theta (<nobr>P.3</nobr>),
     <nobr>B.1.616</nobr> a Kappa (<nobr>B.1.617.1</nobr>), Varianta sledovaná (VUM) Iota (<nobr>B.1.526</nobr>) a další.
-    Vzhledem k současnému výskytu ve společnosti se dá předpokládat, že varianty Beta (<nobr>B.1.351</nobr>) a Gamma (<nobr>P.1</nobr>) budou brzy prohlášeny za deeskalované.
 
    
     
@@ -48,7 +47,81 @@
 
     <h4>Přehled Variant hodných pozornosti (VOC)</h4>  
 
+    <h4> Beta (B.1.351; 20H/501.V2)</h4>
+
+    Varianta Beta byla dlouho dominantní v&nbsp;Jižní Africe a v malé míře se rozšířila do celého světa, včetně České republiky. 
+    U nás byla poprvé pozorována v únoru tohoto roku, ale ustoupila rychleji se šířícím variantám - hlavně variantě Alpha. 
+
+    <span style="display:block; height: 15px;"></span> 
+
+    U varianty Beta byla prokázána vyšší nakažlivost oproti wuchanské variantě (podle WHO o&nbsp;přibližně 25&nbsp;%, <a href="https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2021.26.24.2100509">Campbell a kol, Euro Surveill, 2021</a>). 
+    Patří mezi varianty s&nbsp;nejvyšším známým únikem imunity.
+    Vakcína Comirnaty of Pfizer-BioNTech má proti symptomatickému prodělání onemocnění covid-19 po nakažení variantou Beta mírně sníženou účinnost 
+    (na zhruba 75 %, <a href="https://www.nejm.org/doi/full/10.1056/NEJMc2104974">Abu-Raddad a kol, NEJM, 2021</a>), 
+    ale pro ochranu jsou potřeba dvě dávky: Pouze 25 % osob má měřitelnou hodnotu neutralizačních protilátek po 1. dávce (<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)01290-3/fulltext">Wall a kol, Lancet, 2021</a>). 
+    Vakcína Vaxzevria od AstraZeneca poskytuje proti Beta variantě ochranu pouze minimální (<a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2102214">Madhi a kol, NEJM, 2021</a>).
+    Varianta Beta navíc vykazovala velmi slabou neutralizaci plazmou osob, které prodělaly covid-19 během první vlny v&nbsp;Jihoafrické Republice, což naznačuje vyšší riziko možných reinfekcí 
+    <a href="https://www.nature.com/articles/s41586-021-03471-w">(Cele a kol, Nature, 2021)</a>. 
+    Účinnost některých monoklonálních protilátek je proti variantě Beta též výrazně snížena (<a href="https://www.cell.com/cell/fulltext/S0092-8674(21)00602-4">Corti a kol, Cell, 2021</a>).
+     
+    <span style="display:block; height: 15px;"></span> 
+
+    Pro variantu Beta jsou charakteristické mutace spike proteinu: D80A, D215G, L241-, L242-, A243-, K417N, E484K, N501Y, D614G, A701V. 
+    Mutace N501Y a K417N umožňují lepší navázání na lidské buňky (<a href="https://science.sciencemag.org/content/369/6511/1603">Gu a kol, Science, 2021</a> a 
+    <a href="https://www.nature.com/articles/s41579-021-00573-0">Harvey a kol, Nature Reviews Microbiology, 2021</a>), 
+    mutace E484K napomáhá úniku neutralizačních protilátek (<a href="https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(21)00068-9/fulltext">Jangra a kol, Lancet Microbe, 2021</a>).
     
+        
+
+    <div class="figure" style="break-before: avoid;">
+        <img src="{{obrazek(template, 'outbreakinfo_genome_JA.png')}}" >
+        <div class="legenda">
+            <i>Charakteristické mutace varianty Beta. Převzato ze&nbsp;<a href="https://outbreak.info/situation-reports?pango=B.1.351">outbreak.info</a>.</i>
+        </div>     
+    </div>     
+
+    <h4> Gamma (P.1; 20J/501Y.V3)</h4>
+
+    Varianta Gamma je dominantní v Brazílii a poprvé byla detekována na konci roku 2020 v&nbsp;Tokiu u čtyř turistů, kteří přiletěli z brazilského státu Amazonas. 
+   
+    <span style="display:block; height: 15px;"></span>   
+
+    Varianta Gamma se šíří rychleji než původní kmen: podle WHO odhadu o cca 38 % 
+    (<a href="https://www.eurosurveillance.org/content/10.2807/1560-7917.ES.2021.26.24.2100509">Campbell a kol, Euro Surveill, 2021</a>), 
+    podle jiných odhadů i více 
+    (<a href="https://science.sciencemag.org/content/372/6544/815">Faria a kol, Science, 2021</a>). 
+    Podle genomických a epidemiologických dat z brazilského města Manaus je ochrana proti reinfekci variantou Gamma po prodělání jiné varianty snížená 
+    (podle odhadů o 21-46 %; <a href="https://science.sciencemag.org/content/372/6544/815">Faria a kol, Science, 2021</a>) 
+    a reinfekce pravděpodobně výrazně přispěly k silné druhé vlně ve městě Manaus (<a href="https://www.bmj.com/content/373/bmj.n1353">Taylor, BMJ, 2021</a>), 
+    kde podle odhadů již značná část obyvatel nákazou jednou prošla (<a href ="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)00183-5/fulltext">Sabino, Lancet, 2021</a>). 
+    Data z Brazílie též naznačují možnost vyššího rizika úmrtí u mladých a středně starých osob (20-59 let) 
+    a osob bez jiných zdravotních komplikací (<a href="https://www.medrxiv.org/content/10.1101/2021.04.13.21255281v1">Ribas Freitas, medRxiv, 2021</a>; 
+    <a href="https://www.medrxiv.org/content/10.1101/2021.03.24.21254046v1.full">Santos de Oliveira, medRxiv, 2012</a>).
+
+    <span style="display:block; height: 15px;"></span>   
+
+    Podle laboratorních studií lze predikovat mírně sníženou účinnost vakcín proti variantě Gamma, 
+    neboť je pozorováno středně velké snížení (přibližně 4-7x) neutralizace viru <i>in vitro</i> konvalescentní plazmou a sérem očkovaných osob 
+    (<a href="https://www.nejm.org/doi/full/10.1056/nejmc2100362vakcíny">Karim a kol, NEJM, 2021</a>; 
+    <a href="https://www.cell.com/cell/fulltext/S0092-8674(21)00367-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867421003676%3Fshowall%3Dtrue">Hoffmann a kol, Cell, 2021</a>). 
+    Účinnost některých monoklonálních protilátek je proti variantě Gamma výrazně snížena (<a href="https://www.cell.com/cell/fulltext/S0092-8674(21)00602-4">Corti a kol, Cell, 2021</a>).
+    
+    <span style="display:block; height: 15px;"></span>   
+
+    Pro tuto variantu jsou charakteristické mutace spike proteinu: L18F, T20N, P26S, D138Y, R190S, K417T, E484K, N501Y, D614G, H655Y, T1027I. 
+    U mutací  K417T, E484K, N501Y je popsán možný mechanismus působení. 
+    Mutace N501Y a K417N umožňují lepší navázání na lidské buňky (<a href="https://science.sciencemag.org/content/369/6511/1603">Gu a kol, Science, 2021</a> a 
+    <a href="https://www.nature.com/articles/s41579-021-00573-0">Harvey a kol, Nature Reviews Microbiology, 2021</a>), 
+    mutace E484K napomáhá úniku neutralizačních protilátek (<a href="https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(21)00068-9/fulltext">Jangra a kol, Lancet Microbe, 2021</a>).
+    Mutace E484K se vyskytuje ve variantě Gamma i Beta, ale obě varianty ji získaly nezávisle na sobě.
+
+    <div class="figure" style="break-before: avoid;">
+        <img src="{{obrazek(template, 'outbreakinfo_genome_brazilka.png')}}" >
+        <div class="legenda">
+            <i>Charakteristické mutace varianty Gamma. Převzato ze&nbsp;<a href="https://outbreak.info/situation-reports?pango=P.1">outbreak.info</a>.</i>
+        </div>
+    </div> 
+
     <h4> Delta (B.1.617.2 a AY.*; 21A; G/452R.V3)</h4>
 
     Varianta Delta způsobila výraznou vlnu v Indii na jaře letošního roku. 
@@ -65,7 +138,7 @@
 
     <span style="display:block; height: 15px;"></span>  
 
-    Podobně jako tomu bylo u dřívěji rozšířené varianty Beta, varianta Delta <i>in vitro</i> vykazuje snížení neutralizace viru sérem očkovaných osob, a to jak pro vakcínu Comirnaty od Pfizer-BioNTech (<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)01290-3/fulltext">Wall a kol, Lancet, 2021</a>; 
+    Podobně jako varianta Beta, varianta Delta <i>in vitro</i> vykazuje snížení neutralizace viru sérem očkovaných osob, a to jak pro vakcínu Comirnaty od Pfizer-BioNTech (<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)01290-3/fulltext">Wall a kol, Lancet, 2021</a>; 
     <a href="https://www.nature.com/articles/s41586-021-03777-9">Planas a kol, Nature, 2021</a>), 
     tak pro vakcínu Vaxzevria od AstraZeneca (<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(21)01290-3/fulltext">Wall a kol, Lancet, 2021</a>; 
     <a href="https://www.nature.com/articles/s41586-021-03777-9">Planas a kol, Nature, 2021</a>). 
