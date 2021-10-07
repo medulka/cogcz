@@ -19,15 +19,15 @@ import base64
 
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
-DF_DATE = "10.9.2021"
-ACTUAL_SAMPLE_SIZE = "1 739"
-LINEAGE_COUNTS = "24"
-WEEK = "36"
-STARTING_WEEK = "25"
-SEQUENCED_RATIO = "11,7"
-MUTATIONS_COUNT = "1 400"
+DF_DATE = "24.9.2021"
+ACTUAL_SAMPLE_SIZE = "2 219"
+LINEAGE_COUNTS = "31"
+WEEK = "38"
+STARTING_WEEK = "27"
+SEQUENCED_RATIO = "11,37"
+MUTATIONS_COUNT = "1 700"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
-VOC = ['B.1.351', 'P.1', 'B.1.617.2','B.1.1.7',"B.1.351.2", "AY.1", "AY.2", "AY.4", "AY.5", "AY.5.2", "AY.6", "AY.7.2", "AY.9","AY.10", "AY.12", "AY.16", "AY.20", "AY.21" ]
+VOC = ['B.1.351', 'P.1', 'B.1.617.2','B.1.1.7',"B.1.351.2", "AY.1", "AY.2", "AY.4", "AY.5", "AY.5.2", "AY.6", "AY.7.2", "AY.9","AY.10", "AY.12", "AY.16", "AY.20", "AY.21","AY.27","AY.34" ]
 VOI = ['B.1.620', 'B.1.621', "C.37" ]
 # uprav tyden v range()
 
