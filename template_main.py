@@ -27,7 +27,7 @@ STARTING_WEEK = "27"
 SEQUENCED_RATIO = "11,37"
 MUTATIONS_COUNT = "1 700"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
-VOC = ['B.1.351', 'P.1', 'B.1.617.2','B.1.1.7',"B.1.351.2", "AY.1", "AY.2", "AY.4", "AY.5", "AY.5.2", "AY.6", "AY.7.2", "AY.9","AY.10", "AY.12", "AY.16", "AY.20", "AY.21","AY.26","AY.27","AY.34" ]
+VOC = ['B.1.351', 'P.1', 'B.1.617.2','B.1.1.7',"B.1.351.2","B.1.351.5", "AY.1", "AY.2", "AY.4","AY.4.1", "AY.5", "AY.5.2", "AY.6","AY.7.1", "AY.7.2", "AY.9","AY.10","AY.11", "AY.12", "AY.16", "AY.20", "AY.21","AY.26","AY.27","AY.31","AY.32","AY.33","AY.34","AY.37" ]
 VOI = ['B.1.620', 'B.1.621', "C.37" ]
 # uprav tyden v range()
 
