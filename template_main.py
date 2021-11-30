@@ -19,15 +19,15 @@ import base64
 
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
-DF_DATE = "05.11.2021"
-ACTUAL_SAMPLE_SIZE = "3 864"
-LINEAGE_COUNTS = "37"
-WEEK = "44"
-STARTING_WEEK = "33"
-SEQUENCED_RATIO = "3.3"
-MUTATIONS_COUNT = "2 400"
+DF_DATE = "19.11.2021"
+ACTUAL_SAMPLE_SIZE = "5 637"
+LINEAGE_COUNTS = "62"
+WEEK = "46"
+STARTING_WEEK = "35"
+SEQUENCED_RATIO = "2.13"
+MUTATIONS_COUNT = "2 900"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
-VOC = ['B.1.351', 'P.1', 'B.1.617.2','B.1.1.7',"B.1.351.2", "B.1.351.5", "AY.1", "AY.2", "AY.3", "AY.4", "AY.4.1", "AY.4.2", "AY.4.3", "AY.4.4","AY.4.5", "AY.5", "AY.5.2", "AY.6","AY.7","AY.7.1", "AY.7.2", "AY.9","AY.10","AY.11", "AY.12", "AY.16", "AY.20", "AY.21","AY.23","AY.23.1","AY.25","AY.26","AY.27","AY.31","AY.32","AY.33","AY.34","AY.35","AY.36","AY.37", "AY.38", "AY.39","AY.39.1","AY.40","AY.41","AY.42","AY.43","AY.44","AY.46","AY.46.6","AY.46.2", "AY.47" ]
+VOC = ['B.1.351',"B.1.1.1.529", 'P.1', 'B.1.617.2','B.1.1.7',"B.1.351.2", "B.1.351.5", "AY.1", "AY.2", "AY.3", "AY.4", "AY.4.1", "AY.4.2", "AY.4.2.1","AY.4.3", "AY.4.4","AY.4.5", "AY.5", "AY.5.2", "AY.5.4","AY.6","AY.7","AY.7.1", "AY.7.2", "AY.9","AY.9.1","AY.10","AY.11", "AY.12", "AY.16", "AY.20", "AY.21", "AY.23","AY.23.1", "AY.25","AY.26","AY.27", "AY.31", "AY.32","AY.33", "AY.34", "AY.35","AY.36", "AY.37", "AY.38", "AY.39","AY.39.1", "AY.40","AY.41","AY.42", "AY.43", "AY.44","AY.46", "AY.46.6","AY.46.2", "AY.47", "AY.51","AY.60", "AY.61", "AY.68", "AY.71", "AY.74", "AY.84", "AY.94","AY.95","AY.96","AY.98","AY.98.1", "AY.102", "AY.106","AY.110","AY.113", "AY.118","AY.119", "AY.120"]
 VOI = ['B.1.620', 'B.1.621', "C.37" ]
 # uprav tyden v range()
 
