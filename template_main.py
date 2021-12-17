@@ -20,7 +20,7 @@ import base64
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
 DF_DATE = "3.12.2021"
-ACTUAL_SAMPLE_SIZE = "6 338"
+ACTUAL_SAMPLE_SIZE = "5 846"
 LINEAGE_COUNTS = "58"
 WEEK = "48"
 STARTING_WEEK = "37"
