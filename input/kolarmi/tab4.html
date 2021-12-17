@@ -23,7 +23,7 @@
             {% set voi = VOI %}
             {% set table = input_table_tsv("input/kolarmi/tableAllLineageWeek.tsv") %}
             {% for line in table[1:-2] %}  
-                {% if is_non_zero_line(line) %}
+                <-- {% if is_non_zero_line(line) %} -->
                     {% if line[0] in voi %}
                         {% set cls = "interest" %}
                     {% elif line[0] in voc %}
