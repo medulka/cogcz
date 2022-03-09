@@ -110,6 +110,8 @@ h4 {
 }
 
 h5 {
+    margin:0;
+    padding:0;
     color: black;
     font-size: 12pt; 
 }
