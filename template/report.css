@@ -112,6 +112,14 @@ h4 {
     margin:0; 
 }
 
+h5 {
+    color: black;
+    font-size: 12pt;
+    padding-top:0cm;
+    padding-bottom:0.15cm;
+    margin:0; 
+}
+
 hr {
     display: block;
     background: #f19e04;
