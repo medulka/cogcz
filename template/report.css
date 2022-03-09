@@ -112,14 +112,6 @@ h4 {
     margin:0; 
 }
 
-h5 {
-    margin:0;
-    padding-top:0px;
-    color: black;
-    font-size: 12pt; 
-    line-height:0.2cm;
-}
-
 hr {
     display: block;
     background: #f19e04;
