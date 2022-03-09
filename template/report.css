@@ -110,7 +110,6 @@ h4 {
     padding-top:0.2cm;
     padding-bottom:0.15cm;
     margin:0; 
-    line-height:0.2cm;
 }
 
 h5 {
@@ -118,7 +117,7 @@ h5 {
     padding-top:0px;
     color: black;
     font-size: 12pt; 
-    line-height:0.1cm;
+    line-height:0.2cm;
 }
 
 hr {
