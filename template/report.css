@@ -108,13 +108,13 @@ h4 {
     color: black;
     font-size: 13pt;
     padding-top:0.2cm;
-    padding-bottom:0.2cm;
+    padding-bottom:0.15cm;
     margin:0; 
 }
 
 h5 {
     margin:0;
-    padding:0;
+    padding-top:0px;
     color: black;
     font-size: 12pt; 
 }
