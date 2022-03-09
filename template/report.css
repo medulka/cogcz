@@ -109,6 +109,11 @@ h4 {
     font-size: 13pt; 
 }
 
+h5 {
+    color: black;
+    font-size: 12pt; 
+}
+
 hr {
     display: block;
     background: #f19e04;
