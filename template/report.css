@@ -106,7 +106,8 @@ h3 {
 
 h4 {
     color: black;
-    font-size: 13pt; 
+    font-size: 13pt;
+    padding: 10px; 
 }
 
 h5 {
