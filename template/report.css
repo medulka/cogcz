@@ -238,7 +238,12 @@ a {
     max-width: 100%;
 }
 
-
+.center {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 article#kontakty dl dt {
     font-weight: 400;
