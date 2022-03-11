@@ -1,31 +1,53 @@
 <div>
-<h4>Porovnání struktur Omicronu</h4>
-
-<div class="figure" style="break-before: avoid;">
-
-        <div class="legenda" style="position: relative">
-            <b>Porovnání modelů jednotlivých variant omikronu (BA.1, BA.1.1, BA.2, BA.3) připravených pomocí serveru SwissModel (<nobr><a href="https://swissmodel.expasy.org/">https://swissmodel.expasy.org/</a></nobr>, Waterhouse A. et al. Nucleic Acids Res. 2017, 46(W1), W296-W303) s pomocí templátu struktury S proteinu SARS-CoV-2 s jednou open RBD doménou (PDBID: 6acj).</b>
-        </div>
-        <img src="{{obrazek(template, 'omicrons.png')}}" style="height: 14cm">
+    Vyobrazení trimerické struktury Spike proteinu viru SARS-CoV-2. 
+    Spike protein je vyznačen v&nbsp;reprezentaci cartoon v&nbsp;šedé barvě, červeně jsou zvýrazněny pozice mutací, šedými kostkami místa glykosylace.
+    Vazebná doména proteinu (receptor-binding domain, RBD), zodpovědná za navázání receptoru ACE2, je vyznačena žlutou barvou, zeleně aminokyseliny přímo se vážící na receptor ACE2. 
+    V&nbsp;panelu je vyobrazena varianta Delta (<nobr>B.1.617.2</nobr>) s charakteristickými mutacemi E156G, Δ157/158, L452R, T478K, D614G, P681R a D950N,
+    a&nbsp;to v&nbsp;pohledech ze směru vazebné domény a v&nbsp;pohledu ze strany. 
+        
 </div>
-
-<div>
-Mutace jsou zobrazeny pomocí následujících barev - BA.1 žlutě, BA.1.1 oranžově, BA.2 modře, BA.3 červeně. RBD doména interagující s ACE2 proteinem je znázorněna černě, ACE2 protein zeleně. Relativní pozice ACE2 byla převzata z jeho heterodimerického komplexu s BOAT1 transportérem a připojené RBD domény S proteinu SARS-CoV-2 (PDBID: 6m17). Připojení do membrány pomocí dlouhého helikálního "stonku" je převzato z modelu I-TASSER (<nobr><a href="https://zhanggroup.org/COVID-19/">https://zhanggroup.org/COVID-19/</a></nobr>, Zheng W. et al. Cell Reports Methods, 2021, 1:100014). Pozice membrány byla vypočítána pomocí serveru PPM3 (<nobr><a href="https://opm.phar.umich.edu/ppm_server">https://opm.phar.umich.edu/ppm_server</a></nobr>, Lomize M.A. et al. Nucleic Acids Res., 2012, 40:D370-376).
 
 <span style="display:block; height: 15px;"></span>
 
-Ze vzájemné pozice jednotlivých mutací si lze všimnout, že BA.3 má mutací nejméně a sdílí je buď se všemi omikrony, nebo s originální variantou omikronu označovanou jako BA.1. Mutace mezi BA.1 a BA.1.1 jsou až na jednu (R346K v RBD doméně) sdíleny. Varianta BA.2 sice většinu mutací sdílí s ostatními omikrony, ale přesto má 11 unikátních mutací, přičemž část těchto mutací (T376A, D405N, R408S, K417N, N440K) je přítomna v RBD doméně, kde ovlivňují vazbu na ACE2 i na virus-neutralizující protilátky.
+
+<div>
+    Mutace charakteristické pro kanonickou variantu Delta jsou E156G, &Delta;157/158, L452R, T478K, D614G, P681R a D950N, všechny jsou vyznačeny zeleně. 
 </div>
 
-<div class="figure" style="break-before: avoid;">
 
+<div class="structure-figure">
+
+    <div class="struktura">
         <div class="legenda" style="position: relative">
-            <b>Průnik sdílení jednotlivých mutací</b>
+            <b>Varianta Delta (B.1.617.2)</b>
         </div>
-        <img src="{{obrazek(template, 'venn_diag.png')}}" class="center" style="height: 10cm">
+        <img src="{{obrazek(template, 'Delta_top.png')}}" style="height: 7cm">
+    </div>
+
+    <div class="struktura">
+        <div class="legenda" style="position: relative">
+            Animace k nahlédnutí na  
+            <a href="">molstar.org</a>.
+        </div>
+        <img src="{{obrazek(template, 'Delta_side.png')}}" style="height: 7cm">
+    </div>
+</div>
+
+<div>
+
+
+<div>
+    Dále je ukázána N-terminální doména <nobr>SARS-CoV-2</nobr> spike proteinu s vizualizací pozice mutovaných aminokyselin v jednotlivých variantách Delta linie. 
+    Možný důvod výskytu velkého množství mutací na hraně N-terminální podjednotky spike proteinu je dán také umístěním na nejzazším povrchu koronaviru. 
+    Vzhledem ke&nbsp;své pozici na povrchu spike proteinu je tato podjednotka často vystavená protilátkám, jak dokazují známé struktury komplexů spike proteinu 
+    s&nbsp;navázanou protilátkou 
+    (např. <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/7l2e">7l2e </a>,  <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/7chc">7chc</a>, <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/7dk5">7dk5 </a>, 
+    <a href="https://www.ebi.ac.uk/pdbe/entry/pdb/7k9z">7k9z</a>). N-terminální doména viru je rovněž cílem neutralizačních protilátek. 
+    
 </div>
 
 
+</div>
 
 <h4>Srovnání variant Delta a Omicron.</h4>
 
@@ -56,5 +78,30 @@ Toto glykosylační stínění pak odpovídá i za&nbsp;rozdíly ve fenotypický
 </div>
 
 
+<h4>Porovnání struktur Omicronu.</h4>
+
+<div class="figure" style="break-before: avoid;">
+
+        <div class="legenda" style="position: relative">
+            <b>Porovnání modelů jednotlivých variant omikronu (BA.1, BA.1.1, BA.2, BA.3) připravených pomocí serveru SwissModel (<nobr><a href="https://swissmodel.expasy.org/">https://swissmodel.expasy.org/</a></nobr>, Waterhouse A. et al. Nucleic Acids Res. 2017, 46(W1), W296-W303) s pomocí templátu struktury S proteinu SARS-CoV-2 s jednou open RBD doménou (PDBID: 6acj).</b>
+        </div>
+        <img src="{{obrazek(template, 'omicrons.png')}}" style="height: 14cm">
+</div>
+
+<div>
+Mutace jsou zobrazeny pomocí následujících barev - BA.1 žlutě, BA.1.1 oranžově, BA.2 modře, BA.3 červeně. RBD doména interagující s ACE2 proteinem je znázorněna černě, ACE2 protein zeleně. Relativní pozice ACE2 byla převzata z jeho heterodimerického komplexu s BOAT1 transportérem a připojené RBD domény S proteinu SARS-CoV-2 (PDBID: 6m17). Připojení do membrány pomocí dlouhého helikálního "stonku" je převzato z modelu I-TASSER (<nobr><a href="https://zhanggroup.org/COVID-19/">https://zhanggroup.org/COVID-19/</a></nobr>, Zheng W. et al. Cell Reports Methods, 2021, 1:100014). Pozice membrány byla vypočítána pomocí serveru PPM3 (<nobr><a href="https://opm.phar.umich.edu/ppm_server">https://opm.phar.umich.edu/ppm_server</a></nobr>, Lomize M.A. et al. Nucleic Acids Res., 2012, 40:D370-376).
+
+<span style="display:block; height: 15px;"></span>
+
+Ze vzájemné pozice jednotlivých mutací si lze všimnout, že BA.3 má mutací nejméně a sdílí je buď se všemi omikrony, nebo s originální variantou omikronu označovanou jako BA.1. Mutace mezi BA.1 a BA.1.1 jsou až na jednu (R346K v RBD doméně) sdíleny. Varianta BA.2 sice většinu mutací sdílí s ostatními omikrony, ale přesto má 11 unikátních mutací, přičemž část těchto mutací (T376A, D405N, R408S, K417N, N440K) je přítomna v RBD doméně, kde ovlivňují vazbu na ACE2 i na virus-neutralizující protilátky.
+</div>
+
+<div class="figure" style="break-before: avoid;">
+
+        <div class="legenda" style="position: relative">
+            <b>Průnik sdílení jednotlivých mutací</b>
+        </div>
+        <img src="{{obrazek(template, 'venn_diag.png')}}" style="height: 14cm">
+</div>
 
 
