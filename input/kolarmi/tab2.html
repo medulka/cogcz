@@ -5,11 +5,11 @@
         Tabulka uvádí frekvenci výskytu variant SARS-CoV-2 ve vzorcích s datem odběru ve dvanácti týdnech před <nobr>{{DF_DATE}}</nobr> ve členění podle krajů. 
         Pro tuto analýzu bylo vybráno z&nbsp;celkového datasetu {{ACTUAL_SAMPLE_SIZE}}, u&nbsp;nichž je dostupná validní sekvence celého genomu a informace o&nbsp;datu odběru. 
         V&nbsp;tabulce jsou uvedeny všechny identifikované varianty. 
-        Počet vzorků, ve kterých byla identifikována daná varianta, je uveden v posledním sloupci. 
+        Počet vzorků, ve kterých byla identifikována daná varianta, je uveden v&nbsp;posledním sloupci. 
         Počet vzorků z&nbsp;daného kraje je uveden v posledním řádku. 
         Barevně jsou označeny Varianty hodné pozornosti (<i>Variants of Concern</i>, tmavší zabarvení) 
         a Varianty hodné zájmu (<i>Variants of Interest</i>, světlejší zabarvení).
-        Pod "None" jsou zařazeny validní sekvence, které nástrojem Pangolin nebyly přiřazeny k žádné variantě. 
+        Pod "None" jsou zařazeny validní sekvence, které nástrojem Pangolin nebyly přiřazeny k&nbsp;žádné variantě. 
     </div>
     <table>
         {% set table = input_table_tsv("input/kolarmi/tableAllLineage.tsv") %}
