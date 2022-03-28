@@ -378,7 +378,7 @@ article#kontakty dl dt {
 .tabulka .legenda {
     padding-top: 0.5cm;
     padding-bottom: 0.2cm;
-    text-align: center;
+    text-align: justify;
     font-size: 10pt;
     text-indent: 0;
     max-width: 100%; 
