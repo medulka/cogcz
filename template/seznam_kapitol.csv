@@ -5,6 +5,7 @@
 "input/kolarmi/varianty-kraje.html","Varianty viru SARS-CoV-2 na území ČR","varianty-kraje"
 "input/kolarmi/AAmutations-regions.html","Přehled proteinových mutací na celogenomové úrovni v krajích České republiky","AAmutations-regions"
 "input/kolarmi/AAmutations-time.html","Přehled proteinových mutací na celogenomové úrovni - časová řada","AAmutations-time"
+"input/kolarmi/AAmutationsGlykosylation-time.html","Přehled proteinových mutací s možnou glykosylací na úrovni spike proteinu - časová řada","AAmutationsGlykosylation-time"
 "input/karelberka/struktura.html","Vyobrazení Spike proteinu variant SARS-CoV-2","struktura"
 "input/hampl/tree.html","Fylogenetická analýza izolátů SARS-CoV-2 z České republiky","tree"
 "input/hampl/haplosit_regiony.html","Znázornění variant SARS-CoV-2 v reprezentaci haplotypové sítě","haplosit_regiony"
