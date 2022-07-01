@@ -159,6 +159,7 @@ def main():
             VOC = VOC,
             VOI = VOI,
             MUTATIONS_COUNT = MUTATIONS_COUNT,
+            MUTATIONS_COUNT_SPIKE = MUTATIONS_COUNT_SPIKE,
             WEEK = WEEK,
             LINEAGE_COUNTS = LINEAGE_COUNTS,
             SEQUENCED_RATIO = SEQUENCED_RATIO,
