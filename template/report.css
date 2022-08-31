@@ -82,7 +82,7 @@ article {
 h2 {
     color: black;
     font-size: 20pt;
-    string-set: heading content() ' 2022 týden 30'; 
+    string-set: heading content() ' 2022 týden 32'; 
     padding-left: 2.6cm;
     padding-top: 1cm;
     margin-top: 0.1cm;
