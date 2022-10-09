@@ -1,6 +1,6 @@
-Fylogenetický strom sestavený z českých sekvencí odebraných od 18. 3. 2022 a výběru referenčních sekvencí z databáze GISAID. 
+Fylogenetický strom sestavený z českých sekvencí odebraných od 24. 6. 2022 a výběru referenčních sekvencí z databáze GISAID. 
 Referenční sekvence ze zahraničí jsou vyznačeny černými linkami s&nbsppůvodem uvedeným v&nbsptextu (země či region a období odběru), 
-české sekvence jsou vyznačeny barevnými linkami a silnější linky označují sekvence vzorků odebrané <nobr>od 22. 4. 2022</nobr>. 
+české sekvence jsou vyznačeny barevnými linkami a silnější linky označují sekvence vzorků odebrané <nobr>od 29. 7. 2022</nobr>. 
 Genotypy určené pomocí PANGO Lineages (metodou UShER) jsou vyznačeny barevnými výsečemi. České vzorky viru SARS-CoV-2 náležejí vesměs
 do varianty Omicron.
-Linie Omicron BA.1 je nadále na ústupu. V rámci linie BA.2 převažuje dceřiná linie BA.2.9.
+V rámci linie omicron zcela převažuje dceřiná linie BA.5, zejména pak rozlišené linie BA.5.1, BA.5.2 a BE.1.1.
