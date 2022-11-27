@@ -19,12 +19,12 @@ import base64
 
 #update regularly
 #change in the reporting since 16.7.2021 (week28) - only last 12 months
-DF_DATE = "7.10.2022"
-ACTUAL_SAMPLE_SIZE = "4 190"
-LINEAGE_COUNTS = "109"
-WEEK = "40"
-STARTING_WEEK = "29"
-SEQUENCED_RATIO = "2,5"
+DF_DATE = "4.11.2022"
+ACTUAL_SAMPLE_SIZE = "4 028"
+LINEAGE_COUNTS = "119"
+WEEK = "44"
+STARTING_WEEK = "33"
+SEQUENCED_RATIO = "2,94"
 MUTATIONS_COUNT = "3 500"
 MUTATIONS_COUNT_SPIKE = "550"
 NOW=datetime.datetime.now().strftime('%d. %m. %Y' )
