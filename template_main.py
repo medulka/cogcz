@@ -79,7 +79,7 @@ def prejmenovani_hlavicky(hlavicka, zkratky_regionu):
 
 def is_non_zero_line(line):
     "in: a line, boolean value"
-    summ = sum([ float(item) for item in line[-11:-2] ])
+    summ = sum([ float(item) for item in line[-10:-2] ])
     return summ > 0.0
 
 def sort_time_table(tbl):
